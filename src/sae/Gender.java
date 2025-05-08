@@ -5,8 +5,8 @@ public enum Gender {
 
     private String genre;
 
-    private Gender(genre){
-        genre = genre;
+    private Gender(String genre){
+        this.genre = genre;
     }
 
     public String getGenre(){
