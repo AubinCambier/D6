@@ -71,4 +71,8 @@ public class Student {
     public String getHostFood(){return information.get("hostFood");}
     public String getHistory(){return information.get("history");}
 
+    public int calculAffinite(Student student){
+        //....
+        return 0;
+    }
 }
