@@ -18,4 +18,12 @@ public class ListAffectation {
     public void addStudent(Student student){
         this.students.add(student);
     }
+
+    public void chargerCSV(){
+        //...
+    }
+
+    public void verifierValiditeCritere(){
+        //...
+    }
 }

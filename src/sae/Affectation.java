@@ -15,5 +15,5 @@ public class Affectation {
     public Student getVisiteur() {return visiteur;}
     public int getAffinite() {return affinite;}
 
-    public void setAffinite(int affinite) {this.affinite = affinite;}
+    public void setAffinite(int affinite) {this.affinite = affinite;} 
 }
