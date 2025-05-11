@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Student {
     private Map<String, String> information;
 
-    private static Map<String, String> critere = new HashMap<String, String>();
+    public static Map<String, String> critere = new HashMap<String, String>();
 
     static {
         critere.put("prenom", "T");
