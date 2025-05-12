@@ -2,11 +2,7 @@ package sae;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import java.time.LocalDate;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StudentTest {
 
@@ -28,11 +24,14 @@ public class StudentTest {
 
     @Test
     public void calculAffiniteTest() {
-        AssertEquals(99, student1.calculAffinite(student2));
-        AssertEquals(99, student1.calculAffinite(student3));
-        AssertEquals(99, student1.calculAffinite(student4));
-        AssertEquals(99, student3.calculAffinite(student2));
-        AssertEquals(99, student4.calculAffinite(student2));
-        AssertEquals(99, student5.calculAffinite(student2));
+
+        // modifier les valeurs en fonction des varables
+
+        assertEquals(0, student1.calculAffinite(student2));
+        assertEquals(0, student1.calculAffinite(student3));
+        assertEquals(0, student1.calculAffinite(student4));
+        assertEquals(0, student3.calculAffinite(student2));
+        assertEquals(0, student4.calculAffinite(student2));
+        assertEquals(0, student5.calculAffinite(student2));
     }
 }
