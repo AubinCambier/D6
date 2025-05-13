@@ -280,6 +280,8 @@ double score_affinité_3(hôte, visiteur)
   // ...
 ```
 
+
+
 ## Retour sur l'exemple
 
 _Donnez le résultat de la fonction `score_affinité_3` pour les exemples d'équilibrage (H1, V1), (H2, V2), etc. ci-dessus. Est-ce que vous obtenez des scores proches ?_ 
