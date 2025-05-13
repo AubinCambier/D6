@@ -219,8 +219,16 @@ Les visiteurs W2 et X2 ne peuvent n'ont pas d'hôtes qui leur convient à cause 
 _Donner le pseudo-code de la fonction `score_affinité_2(hôte, visiteur)` qui retourne un nombre représentant le degré d'affinité entre un hôte et un visiteur. Vous pouvez réutiliser la fonction `score_affinité_1` (l'appeler ou copier du code)._
 
 ```
-double score_affinité_2(hôte, visiteur) 
-  
+double score_affinité_2(hote, visiteur)
+
+    si hote.host_has_animal == visiteur.guest_animal_allergy
+        retourner null;
+
+    si visiteur.guest_food_constraint n'appartiennent pas à host.host_food
+        retourner null;
+
+    retourner score_affinité(hote,visiteur)
+
 ```
 
 ## Retour sur l'exemple
