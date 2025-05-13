@@ -5,15 +5,25 @@ public class Affectation {
     private Student visiteur;
     private int affinite;
 
-    public Affectation(Student hote, Student visiteur){
+    public Affectation(Student hote, Student visiteur) {
         this.hote = hote;
         this.visiteur = visiteur;
         this.affinite = hote.calculAffinite(visiteur);
     }
 
-    public Student getHote() {return hote;}
-    public Student getVisiteur() {return visiteur;}
-    public int getAffinite() {return affinite;}
+    public Student getHote() {
+        return hote;
+    }
 
-    public void setAffinite(int affinite) {this.affinite = affinite;} 
+    public Student getVisiteur() {
+        return visiteur;
+    }
+
+    public int getAffinite() {
+        return affinite;
+    }
+
+    public void setAffinite(int affinite) {
+        this.affinite = affinite;
+    }
 }

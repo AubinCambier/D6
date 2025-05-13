@@ -7,6 +7,8 @@ import java.time.LocalDate;
 public class Student {
     private Map<String, String> information;
 
+    // on instancie tous les criètès d'un étudiant
+
     public static Map<String, String> critere = new HashMap<String, String>();
 
     static {
@@ -23,14 +25,15 @@ public class Student {
         critere.put("history", "T");
     }
 
+    // constructeur du HashMap (s'il n'existe pas)
     public Student() {
         information = new HashMap<>();
     }
 
-    public Student(String prenom, String nom, String dateNaissance,
-            String pays, String gender, String pairGender,
-            String guestAnimalAllergy, String hostHasAnimal,
-            String guestFood, String hostFood, String history) {
+    // constructeur ajoutant un Student dans la liste HashMap d'étudiants
+    public Student(String prenom, String nom, String dateNaissance, String pays, String gender, String pairGender,
+            String guestAnimalAllergy, String hostHasAnimal, String guestFood, String hostFood, String history) {
+        // appel le constructeur student();
         this();
         information.put("prenom", prenom);
         information.put("nom", nom);
@@ -45,6 +48,7 @@ public class Student {
         information.put("history", history);
     }
 
+    // les setter de chaque information des students
     public void setPrenom(String prenom) {
         information.put("prenom", prenom);
     }
@@ -89,6 +93,7 @@ public class Student {
         information.put("history", history);
     }
 
+    // les getter de chaques information des students
     public String getPrenom() {
         return information.get("prenom");
     }
@@ -133,8 +138,9 @@ public class Student {
         return information.get("history");
     }
 
+    // calculer l'affinité entre deux étudiants (lui avec un autre.)
     public int calculAffinite(Student student) {
-        // ....
+        // .... à réaliser
         return 0;
     }
 }
