@@ -285,41 +285,66 @@ _Donnez au moins quatre paires hôte-visiteur (H1, V1), (H2, V2), (H3, V3), (H4,
 
 **Hôtes**
 
-|Name|Hobbies|Gender|Pair_Gender|Birth_Date|Host_Has_Animal|Host_Food|
+|Name|Hobbies|Gender|Pair_Gender|Birth_Date|Host_Has_Animal|Host_Food|history|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|H1|||||||
-|H2|||||||
-|H3|||||||
-|H4|||||||
+|H1|Music,Cinema,Reading|F|M|2006-03-21|Yes|no pork|_|
+|H2|Video Games,Chess,Culture|M|F|2007-08-15|No|Vegetarian|_|
+|H3|Swimming,Science,Cooking|M|M|2005-11-30|Yes|_|_|
+|H4|Art,Cooking,Nature|F|F|2008-04-12|No|Vegan|_|
 
 **Visiteurs**
 
-|Name|Hobbies|Gender|Pair_Gender|Birth_Date|Guest_Animal_Allergy|Guest_Food_Constraint|
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|V1|||||||
-|V2|||||||
-|V3|||||||
-|V4|||||||
+|Name|Hobbies|Gender|Pair_Gender|Birth_Date|Guest_Animal_Allergy|Guest_Food_Constraint|history|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|V1|Reading,Music,History|M|F|2006-04-01|Yes|No Pork|_|
+|V2|Chess,Culture,Cinema|F|M|2007-09-10|No|Vegetarian|_|
+|V3|Cooking,Swimming,Tech|M|M|2005-10-22|No|_|_|
+|V4|Nature,Drawing,Animals|F|F|2008-02-05|No|Vegan|_|
+
+(H1, V1) 
+Ce couple respecte toutes les contraintes et présente une excellente affinité sur les loisirs. Cas idéal.
+
+(H2, V2)
+L’allergie est une contrainte importante, mais dans des cas très spécifiques (animal pouvant être isolé + affinités et régime compatibles), elle peut être compensée si toutes les autres conditions sont très favorables.
+
+(H3, V3)
+Un bon exemple d’appariement équilibré : pas de contraintes violées, affinité suffisante (2 hobbies communs).
+
+(H4, V4)
+Ici, la contrainte alimentaire de l’hôte est exigeante, mais le visiteur étant également vegan, cela devient un point d’affinité et non un obstacle.
 
 ## Score d'affinité
 
 _Donner le pseudo-code de la fonction `score_affinité_3(hôte, visiteur)` qui retourne un nombre représentant le degré d'affinité entre un hôte et un visiteur. Vous pouvez réutiliser les fonctions `score_affinité_1` et `score_affinité_2`._
 
 ```
-double score_affinité_3(hôte, visiteur) 
-  
+double score_affinité_3(hôte, visiteur)
+
+    score = score_affinité_1(hôte, visiteur)
+
+    si visiteur.history = other
+        retourner null
+
+    si nombre_contrainte_redhibitoire >= 2
+        retourner null
+
+    si score_affinité_2(hôte, visiteur) = null
+        score = score + 2
+
+    si score_affinité_1(hôte, visiteur) <= 2
+        score = score - 2
+
+    retourner score_affinité_1(hôte, visiteur)
 ```
 
 ## Retour sur l'exemple
 
 _Donnez le résultat de la fonction `score_affinité_3` pour les exemples d'équilibrage (H1, V1), (H2, V2), etc. ci-dessus. Est-ce que vous obtenez des scores proches ?_ 
 
-||V1|V2|V3|V4|
-|:-:|:-:|:-:|:-:|:-:|
-|H1|||||
-|H2|||||
-|H3|||||
-|H4|||||
+(H1, V1) -> 0
+(H2, V2) -> -0.5
+(H3, V3) -> -2
+(H4, V4) -> -1
 
 _**Remarque**: Deux scores ne sont pas proches ou éloignés dans l'absolu ; cela dépend de la valeur minimale et la valeur maximale que peut prendre le score. Par exemple, les nombres 10 et 20 sont "proches" à l'échelle de l'intervalle de 0 à 1000, mais ne sont pas "proches" à l'échelle de l'intervalle 0 à 30._
 
