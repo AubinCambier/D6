@@ -239,17 +239,31 @@ _Calculez l'appariement de poids minimal pour chacun des graphes. Obtenez-vous l
 
 ||W1|X1|Y1|Z1|
 |:-:|:-:|:-:|:-:|:-:|
-|A1|||||
-|B1|||||
-|C1|||||
-|D1|||||
+|A1|null|null|3.5|null|
+|B1|null|4.5|3|null|
+|C1|null|null|null|2|
+|D1|2|null|null|null|
+
+Le meilleur appariement est :
+
+A1 -> Y1
+B1 -> X1
+C1 -> Z1
+D1 -> W1
 
 ||W2|X2|Y2|Z2|
 |:-:|:-:|:-:|:-:|:-:|
-|A2|||||
-|B2|||||
-|C2|||||
-|D2|||||
+|A2|null|null|3.5|null|
+|B2|null|null|3|null|
+|C2|null|null|null|2|
+|D2|null|null|null|null|
+
+Le meilleur appariement est :
+
+A2 ou B2 -> Y2
+C2 -> Z2
+
+Ces appariements correspondent bien à ce que l'on avait trouvé.
 
 ## Robustesse de la modélisation (question difficile)
 
@@ -259,7 +273,7 @@ _**Indications** : Cherchez un exemple de **grande taille** pour lequel la fonct
 
 _Il est possible que votre fonction garantisse le respect des contraintes quel que soit l'exemple. Si vous pensez que c'est le cas, donnez des arguments pour convaincre._ 
 
-
+Notre fonction garantie le respect des contraintes car en renvoyant null comme score d'affinité lorsqu'une contraintes rédhibitoires n'est pas respecter il est impossible qu'un appariement entre 2 personnes incompatibles soie renvoyé.
 
 # Version 3
 
@@ -269,20 +283,43 @@ _Ci-dessous, H1, H2, etc. désignent des noms d'hôtes et V1, V2, etc désignent
 
 _Donnez au moins quatre paires hôte-visiteur (H1, V1), (H2, V2), (H3, V3), (H4, V4), ... que vous considérez quasi équivalents pour l'affectation. Certaines de ces paires doivent ne pas respecter les contraintes considérées rédhibitoires dans la Version 2, d'autres doivent les respecter. Ces exemples doivent illustrer l'équilibrage que vous faites entre l'incompatibilité d'une part et l'affinité d'autre part : combien et quel type d'affinité permet de compenser combien et quel type d'incompatibilité. Les exemples seront accompagnés de commentaires expliquant vos choix._
 
+**Hôtes**
+
+|Name|Hobbies|Gender|Pair_Gender|Birth_Date|Host_Has_Animal|Host_Food|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|H1|||||||
+|H2|||||||
+|H3|||||||
+|H4|||||||
+
+**Visiteurs**
+
+|Name|Hobbies|Gender|Pair_Gender|Birth_Date|Guest_Animal_Allergy|Guest_Food_Constraint|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|V1|||||||
+|V2|||||||
+|V3|||||||
+|V4|||||||
+
 ## Score d'affinité
 
 _Donner le pseudo-code de la fonction `score_affinité_3(hôte, visiteur)` qui retourne un nombre représentant le degré d'affinité entre un hôte et un visiteur. Vous pouvez réutiliser les fonctions `score_affinité_1` et `score_affinité_2`._
 
 ```
 double score_affinité_3(hôte, visiteur) 
-  // compléter le code ici
-  // ...
-  // ...
+  
 ```
 
 ## Retour sur l'exemple
 
 _Donnez le résultat de la fonction `score_affinité_3` pour les exemples d'équilibrage (H1, V1), (H2, V2), etc. ci-dessus. Est-ce que vous obtenez des scores proches ?_ 
+
+||V1|V2|V3|V4|
+|:-:|:-:|:-:|:-:|:-:|
+|H1|||||
+|H2|||||
+|H3|||||
+|H4|||||
 
 _**Remarque**: Deux scores ne sont pas proches ou éloignés dans l'absolu ; cela dépend de la valeur minimale et la valeur maximale que peut prendre le score. Par exemple, les nombres 10 et 20 sont "proches" à l'échelle de l'intervalle de 0 à 1000, mais ne sont pas "proches" à l'échelle de l'intervalle 0 à 30._
 
