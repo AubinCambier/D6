@@ -6,32 +6,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StudentTest {
 
-    Student student1, student2, student3, student4, student5;
+        Student student1, student2, student3, student4, student5;
 
-    @BeforeEach
-    public void initialisation() {
+        @BeforeEach
+        public void initialisation() {
 
-        student1 = new Student("Matthieu", "A", "02-05-2006", "France", "M", "M", "no", "no", "no", "no", "lalala");
-        student2 = new Student("Mathéo", "Lelong", "01-01-2007", "France", "M", "F", "no", "no", "no", "no",
-                "histoire");
-        student3 = new Student("Lucie", "Martin", "15-08-2005", "France", "F", "M", "yes", "no", "végétarien", "aucune",
-                "danse");
-        student4 = new Student("Carlos", "Gomez", "23-03-2006", "Espagne", "M", "F", "no", "yes", "aucune", "halal",
-                "musique");
-        student5 = new Student("Aya", "Tanaka", "12-12-2007", "Japon", "F", "M", "yes", "yes", "sans gluten",
-                "végétarien", "dessin");
-    }
+                student1=new Student("Matthieu","A","2006-05-02","France","M","M","no","no","no","no","lalala","sport,poney");
+                student2=new Student("Mathéo","Lelong","2007-01-01","France","M","F","no","no","no","no","histoire","sport");
+                student3=new Student("Lucie","Martin","2005-08-15","France","F","M","yes","no","végétarien","aucune","danse","dance");
+                student4=new Student("Carlos","Gomez","2006-03-23","Espagne","M","F","no","yes","aucune","halal","musique","leer");
+                student5=new Student("Aya","Tanaka","2007-12-12","Japon","F","M","yes","yes","sans gluten","végétarien","dessin","leer");
+        }
 
-    @Test
-    public void calculAffiniteTest() {
+        @Test
+        public void calculAffiniteTest() {
 
-        // modifier les valeurs en fonction des varables
+                // modifier les valeurs en fonction des varables
 
-        assertEquals(0, student1.calculAffinite(student2));
-        assertEquals(0, student1.calculAffinite(student3));
-        assertEquals(0, student1.calculAffinite(student4));
-        assertEquals(0, student3.calculAffinite(student2));
-        assertEquals(0, student4.calculAffinite(student2));
-        assertEquals(0, student5.calculAffinite(student2));
-    }
+                assertEquals(2.5, student1.calculAffinite(student2));
+                assertEquals(2.5, student1.calculAffinite(student3));
+                assertEquals(2.5, student1.calculAffinite(student4));
+                assertEquals(4.0, student3.calculAffinite(student2));
+                assertEquals(1.0, student4.calculAffinite(student2));
+                assertEquals(4.0, student5.calculAffinite(student2));
+        }
 }
