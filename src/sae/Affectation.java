@@ -3,7 +3,7 @@ package sae;
 public class Affectation {
     private Student hote;
     private Student visiteur;
-    private int affinite;
+    private double affinite;
 
     public Affectation(Student hote, Student visiteur) {
         this.hote = hote;
@@ -19,7 +19,7 @@ public class Affectation {
         return visiteur;
     }
 
-    public int getAffinite() {
+    public double getAffinite() {
         return affinite;
     }
 
