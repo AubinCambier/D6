@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDate;
+import java.lang.Math;
 
 public class Student {
     private Map<String, String> information;
@@ -104,10 +105,29 @@ public class Student {
         }
 
         //calcul hobbies
-        if
+        int nbCommonHobbies = 0;
+        for (int i = 0; i<this.getHobbies().size();i=i+1){
+            for (int j=0;j<student.getHobbies().size();j=j+1){
+                if(this.getHobbies().get(i).equals(student.getHobbies().get(j))){
+                    nbCommonHobbies = nbCommonHobbies +1;
+                }
+            }
+        }
+        if (nbCommonHobbies == 1){
+            affinite = affinite + 1;
+        }
+        if (nbCommonHobbies >= 2){
+            affinite = affinite + 2;
+        }
 
         //calcul date
+        int jourlimit = (int) (365*1.5);
+        int thisDate = this.getDateNaissance().getYear()*365 + this.getDateNaissance().getDayOfYear();
+        int stdDate = student.getDateNaissance().getYear()*365 + student.getDateNaissance().getDayOfYear();
 
+        if(Math.abs(thisDate - stdDate) < jourlimit){
+            affinite++;
+        }
         //retourne l'affinité de deux personnes
         return affinite;
     }
