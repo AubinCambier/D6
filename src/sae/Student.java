@@ -97,6 +97,9 @@ public class Student {
     public void setHistory(String history) {
         information.put("history", history);
     }
+    public void setHobbies(String hobbies){
+        information.put("hobbies", hobbies);
+    }
 
     // les getter de chaques information des students
     public String getPrenom() {
