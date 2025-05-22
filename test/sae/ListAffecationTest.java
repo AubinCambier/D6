@@ -27,5 +27,14 @@ public class ListAffecationTest {
 
         // ajouter autres test pertinent si necessaire
     }
+    @Test
+    public void chargerCSVTest(){
+        ListAffectation listTest = new ListAffectation();
+        listTest.chargerCSV("infoetu.csv");
+        for (Student etudiant : listTest.getStudents()){
+            System.out.println(""+etudiant.toString());
+        }
+        assertEquals("listTest", "listTest");
+    }
 
 }

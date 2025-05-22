@@ -1,6 +1,7 @@
 package sae;
 
 import java.util.ArrayList;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -31,12 +32,10 @@ public class ListAffectation {
         this.students.add(student);
     }
 
-    public static void chargerCSV() {
+    public void chargerCSV(String fichiercsv) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(System.getProperty("user.dir")).append(File.separator).append("doc").append(File.separator).append("infoetu.csv");
-
-        System.out.println(""+sb.toString());
+        sb.append(System.getProperty("user.dir")).append(File.separator).append("doc").append(File.separator).append(fichiercsv);
 
         File csvFile = new File(sb.toString());
 
@@ -44,14 +43,14 @@ public class ListAffectation {
             String ligne;
             while ((ligne = br.readLine()) != null) {
                 String[] colonnes = ligne.split(";"); 
-                for (String valeur : colonnes) {
-                    System.out.print(valeur.trim() + " | ");
-                }
+                this.students.add(new Student(colonnes[0],colonnes[1],colonnes[2],colonnes[3],colonnes[4],colonnes[5],colonnes[6],colonnes[7],colonnes[8],colonnes[9],colonnes[10],colonnes[11]));
                 System.out.println();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //supprimer la première ligne car elle sert à se repérer dans les valeurs à ajouter
+        students.remove(0);
 
     }
 
@@ -59,7 +58,9 @@ public class ListAffectation {
     public void verifierValiditeCritere() {
         // ...
     }
-    public static void main(String[] args) {
-        chargerCSV();
+    
+    public void main(String[] args) {
+        chargerCSV("infoetu.csv");
+
     }
 }

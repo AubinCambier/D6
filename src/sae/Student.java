@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.lang.Math;
 
 public class Student {
@@ -132,6 +133,10 @@ public class Student {
     public LocalDate getDateNaissance() {
         return LocalDate.parse(information.get("dateNaissance"));
     }
+    public String getDateNaissance(LocalDate dateNaissance){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return dateNaissance.format(formatter);
+    }
 
     /** Retourne le pays d'origine de l'étudiant. */
     public String getPays() {
@@ -175,34 +180,15 @@ public class Student {
 
     /**retourn la liste de tout les hobbies de l'etudiant */
     public ArrayList<String> getHobbies() {
-    // Liste qui va contenir les hobbies extraits
-    ArrayList<String> listHobbies = new ArrayList<>();
-    // Variable temporaire pour construire chaque hobby
-    String hobbie = "";
-    try {
-        // Parcours chaque caractère de la chaîne correspondant à la clé "hobbie"
-        for (int i = 0; i < this.information.get("hobbie").length(); i = i + 1) {
-            // Si le caractère est une virgule, cela signifie fin d'un hobby
-            if (this.information.get("hobbie").charAt(i) == ',') {
-                // Ajoute le hobby construit dans la liste
-                listHobbies.add(hobbie);
-                // Réinitialise la variable pour le prochain hobby
-                hobbie = "";
-            } else {
-                // Sinon, continue de construire le hobby en ajoutant le caractère suivant
-                hobbie = hobbie + this.information.get("hobbie").charAt(i);
-            }
+
+    ArrayList<String> hobbies = new ArrayList<>();
+    String[] hobbie = information.get("hobbies").split(",");
+
+        for (String valeur : hobbie){
+            hobbies.add(valeur);
         }
-        // Ajoute le dernier hobby après la fin de la boucle 
-        listHobbies.add(hobbie);
-    } catch (NullPointerException e) {
-        // Gestion de l'exception si la clé "hobbie" est absente ou null
-        System.out.println("valeur null");
+    return hobbies;
     }
-    
-    // Retourne la liste des hobbies extraits
-    return listHobbies;
-}
 
     // calculer l'affinité entre deux étudiants (lui avec un autre.)
     public double calculAffinite(Student student) {
@@ -248,6 +234,9 @@ public class Student {
 
         // Retourne le score total d'affinité calculé
         return affinite;
+    }
+    public String toString(){
+        return ""+getNom()+"--"+getPrenom()+"--"+getDateNaissance(getDateNaissance())+"--"+getPays()+"--"+getGender()+"--"+getPairGender()+"--"+getGuestAnimalAllergy()+"--"+getHostHasAnimal()+"--"+getGuestFood()+"--"+getHostFood()+"--"+getHistory()+"--"+getHobbies();
     }
 
 }
