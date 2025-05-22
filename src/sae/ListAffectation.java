@@ -1,12 +1,14 @@
 package sae;
 
 import java.util.ArrayList;
+import java.nio.file.Paths;
 
 public class ListAffectation {
     /**liste d'etudiants */
     private ArrayList<Student> students;
     /**liste d'affectation */
     private ArrayList<Affectation> affectations;
+    private final static String RESSOURCES_PATH = Paths.get("","");
 
     /**constructeur principale initialisant la liste d'étudiants et la liste d'affectation */
     public ListAffectation() {
