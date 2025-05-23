@@ -31,11 +31,17 @@ public class ListAffectation {
     public void addStudent(Student student) {
         this.students.add(student);
     }
+    public StringBuilder chemin(String fichiercsv){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(System.getProperty("user.dir")).append(File.separator).append("doc").append(File.separator).append(fichiercsv);
+        return sb;
+    }
 
     public void chargerCSV(String fichiercsv) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append(System.getProperty("user.dir")).append(File.separator).append("doc").append(File.separator).append(fichiercsv);
+        sb = chemin(fichiercsv);
 
         File csvFile = new File(sb.toString());
 
@@ -44,23 +50,42 @@ public class ListAffectation {
             while ((ligne = br.readLine()) != null) {
                 String[] colonnes = ligne.split(";"); 
                 this.students.add(new Student(colonnes[0],colonnes[1],colonnes[2],colonnes[3],colonnes[4],colonnes[5],colonnes[6],colonnes[7],colonnes[8],colonnes[9],colonnes[10],colonnes[11]));
-                System.out.println();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         //supprimer la première ligne car elle sert à se repérer dans les valeurs à ajouter
         students.remove(0);
-
     }
 
     /**methode permettant de verifier si le critère est valide */
     public void verifierValiditeCritere() {
         // ...
     }
-    
-    public void main(String[] args) {
-        chargerCSV("infoetu.csv");
-
+    public String toStringStudents(){
+        String txt = "";
+        for (Student student : students){
+            txt= txt + student.toString() + "\n";
+        }
+        return txt;
     }
-}
+    public String toStringAffectation(){
+        //a compléter
+        return " ";
+    }
+    /*
+    public void ajouterStudent(String prenom, String nom, String dateNaissance, String pays, String gender, String pairGender,String guestAnimalAllergy, String hostHasAnimal, String guestFood, String hostFood, String history, String hobbies){
+        String[] nouvelleLigne = {prenom,nom,dateNaissance,pays,gender,pairGender,guestAnimalAllergy,hostHasAnimal,guestFood,hostFood,history,hobbies};
+        try (FileWriter writer = new FileWriter("infoetu.csv",true)){
+            for (String e: nouvelleLigne){
+                String ligne = String.join(';');
+            }
+            
+            writer.write(ligne + "\n"); 
+            System.out.println("Ligne ajoutée avec succès !");
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+            */
+    }

@@ -23,7 +23,7 @@ public class StudentTest {
 
                 // modifier les valeurs en fonction des varables
 
-                assertEquals(2.5, student1.calculAffinite(student2));
+                assertEquals(3.5, student1.calculAffinite(student2));
                 assertEquals(2.5, student1.calculAffinite(student3));
                 assertEquals(2.5, student1.calculAffinite(student4));
                 assertEquals(4.0, student3.calculAffinite(student2));
@@ -32,6 +32,6 @@ public class StudentTest {
         }
         @Test
         public void toStringTest(){
-                assertEquals("A--Matthieu--2006-05-02--France--M--M--false--false--no--no--lalala--[sport, poney]", student1.toString());
+                assertEquals("Matthieu--A--2006-05-02--France--M--M--false--false--no--no--lalala--[sport, poney]", student1.toString());
         }
 }

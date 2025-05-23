@@ -58,7 +58,7 @@ public class Student {
     }
 
 
-    
+
     /** Définit le prénom de l'étudiant. */
     public void setPrenom(String prenom) {
         information.put("prenom", prenom);
@@ -235,8 +235,9 @@ public class Student {
         // Retourne le score total d'affinité calculé
         return affinite;
     }
+    
     public String toString(){
-        return ""+getNom()+"--"+getPrenom()+"--"+getDateNaissance(getDateNaissance())+"--"+getPays()+"--"+getGender()+"--"+getPairGender()+"--"+getGuestAnimalAllergy()+"--"+getHostHasAnimal()+"--"+getGuestFood()+"--"+getHostFood()+"--"+getHistory()+"--"+getHobbies();
+        return ""+getPrenom()+"--"+getNom()+"--"+getDateNaissance(getDateNaissance())+"--"+getPays()+"--"+getGender()+"--"+getPairGender()+"--"+getGuestAnimalAllergy()+"--"+getHostHasAnimal()+"--"+getGuestFood()+"--"+getHostFood()+"--"+getHistory()+"--"+getHobbies();
     }
 
 }
