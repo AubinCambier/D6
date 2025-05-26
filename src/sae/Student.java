@@ -232,6 +232,21 @@ public class Student {
             affinite++;
         }
 
+        if (this.getPays().equals("france")){
+            int nbCommonHobbies2 = 0;
+            for (int i = 0; i < this.getHobbies().size(); i = i + 1) {
+                for (int j = 0; j < student.getHobbies().size(); j = j + 1) {
+                    // Si un hobby est commun, on ajoute un au compteur
+                    if (this.getHobbies().get(i).equals(student.getHobbies().get(j))) {
+                        nbCommonHobbies2 = nbCommonHobbies2 + 1;
+                    }
+                }
+            }
+            if (nbCommonHobbies2 >0) {
+                affinite = 0;
+            }
+        }
+
         // Retourne le score total d'affinité calculé
         return affinite;
     }
