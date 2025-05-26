@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.lang.Math;
+import java.text.ParseException;
 
 public class Student {
     /**atribu permettant de donné d'associé les information d'un etudiants, c'est cette hashMap qui est initialisé par le constructeur */
@@ -43,18 +45,95 @@ public class Student {
             String hobbies) {
         // appel le constructeur student();
         this();
-        information.put("prenom", prenom);
+        try{
+            if(!(prenom instanceof String)){
+                throw new WrongInformationException("prenom invalide");
+            }
+            else {information.put("prenom", prenom);}
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
         information.put("nom", nom);
-        information.put("dateNaissance", dateNaissance);
-        information.put("pays", pays);
-        information.put("gender", gender);
-        information.put("pairGender", pairGender);
-        information.put("guestAnimalAllergy", guestAnimalAllergy);
-        information.put("hostHasAnimal", hostHasAnimal);
-        information.put("guestFood", guestFood);
-        information.put("hostFood", hostFood);
-        information.put("history", history);
-        information.put("hobbies", hobbies);
+        try{
+            LocalDate ld=LocalDate.parse(dateNaissance);
+            information.put("dateNaissance", dateNaissance);
+
+        }catch(DateTimeParseException e){
+            System.out.println("WrongInformationException : date invalide");
+        }
+        try{
+
+            if(!(pays instanceof String)){
+                throw new WrongInformationException("pays invalide");
+            }
+            information.put("pays", pays);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if(!(gender instanceof String)){
+                throw new WrongInformationException("genre invalide");
+            }
+            information.put("gender", gender);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if((!"true".equals(pairGender)) && (!"false".equals(pairGender))){
+                throw new WrongInformationException("pairGender invalide");
+            }
+            information.put("pairGender", pairGender);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if((!"true".equals(guestAnimalAllergy)) && (!"false".equals(guestAnimalAllergy))){
+                throw new WrongInformationException("guestAnimalAllergy invalide");
+            }
+            information.put("guestAnimalAllergy", guestAnimalAllergy);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if((!"true".equals(hostHasAnimal)) && (!"false".equals(hostHasAnimal))){
+                throw new WrongInformationException("hostHasAnimal invalide");
+            }
+            information.put("hostHasAnimal", hostHasAnimal);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if(!(gender instanceof String)){
+                throw new WrongInformationException("guestFood invalide");
+            }
+            information.put("guestFood", guestFood);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if(!(hostFood instanceof String)){
+                throw new WrongInformationException("hostFood invalide");
+            }
+            information.put("hostFood", hostFood);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if(!(history instanceof String)){
+                throw new WrongInformationException("history invalide");
+            }
+            information.put("history", history);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
+        try{
+            if(!(hobbies instanceof String)){
+                throw new WrongInformationException("hobbies invalide");
+            }
+            information.put("hobbies", hobbies);
+        }catch(WrongInformationException e){
+            System.out.println(e);
+        }
     }
 
 
@@ -230,21 +309,6 @@ public class Student {
         // Si la différence est inférieure à 1.5 an, on ajoute 1 à l'affinité
         if (Math.abs(thisDate - stdDate) < jourlimit) {
             affinite++;
-        }
-
-        if (this.getPays().equals("france")){
-            int nbCommonHobbies2 = 0;
-            for (int i = 0; i < this.getHobbies().size(); i = i + 1) {
-                for (int j = 0; j < student.getHobbies().size(); j = j + 1) {
-                    // Si un hobby est commun, on ajoute un au compteur
-                    if (this.getHobbies().get(i).equals(student.getHobbies().get(j))) {
-                        nbCommonHobbies2 = nbCommonHobbies2 + 1;
-                    }
-                }
-            }
-            if (nbCommonHobbies2 >0) {
-                affinite = 0;
-            }
         }
 
         // Retourne le score total d'affinité calculé
