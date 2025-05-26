@@ -1,0 +1,6 @@
+Prenom;Nom;DateNaissance;Pays;Gender;PairGender;GuestAnimalAllergy;HostHasAnimal;GuestFood;HostFood;History;Hobbies
+Matthieu;A;2006-05-02;France;M;M;no;no;no;no;lalala;sport,poney
+Mathéo;Lelong;2007-01-01;France;M;F;no;no;no;no;histoire;sport
+Lucie;Martin;2005-08-15;France;F;M;yes;no;végétarien;aucune;danse;dance
+Carlos;Gomez;2006-03-23;Espagne;M;F;no;yes;aucune;halal;musique;leer
+Aya;Tanaka;2007-12-12;Japon;F;M;yes;yes;sans gluten;végétarien;dessin;leer
