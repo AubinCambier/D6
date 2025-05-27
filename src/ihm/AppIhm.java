@@ -10,11 +10,11 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-public class FXMLdemo extends Application {
+public class AppIhm extends Application {
 
         public void start(Stage stage) throws IOException {
                 FXMLLoader loader = new FXMLLoader();
-                URL fxmlFileUrl = getClass().getResource("interface.fxml");
+                URL fxmlFileUrl = getClass().getResource("menu.fxml");
                 if (fxmlFileUrl == null) {
                         System.out.println("Impossible de charger le fichier fxml");
                         System.exit(-1);
@@ -24,7 +24,7 @@ public class FXMLdemo extends Application {
 
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-                stage.setTitle("FXML demo");
+                stage.setTitle("Menu");
                 stage.show();
         }
 
