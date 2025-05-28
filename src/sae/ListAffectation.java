@@ -60,7 +60,7 @@ public class ListAffectation {
 
     /**methode permettant de verifier si le critère est valide */
     public void verifierValiditeCritere() {
-        // ...
+        // ... vois si les valeurs sont correctes et afficher les lignes et les erreurs éventuelles
     }
     public String toStringStudents(){
         String txt = "";
@@ -70,8 +70,11 @@ public class ListAffectation {
         return txt;
     }
     public String toStringAffectation(){
-        //a compléter
-        return " ";
+        String txt = "";
+        for (Affectation affectation : affectations){
+            txt = txt + affectation.toString() + "\n";
+        }
+        return txt;
     }
     /*
     public void ajouterStudent(String prenom, String nom, String dateNaissance, String pays, String gender, String pairGender,String guestAnimalAllergy, String hostHasAnimal, String guestFood, String hostFood, String history, String hobbies){

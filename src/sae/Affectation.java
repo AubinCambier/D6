@@ -43,5 +43,8 @@ public class Affectation {
     public void setAffinite(int affinite) {
         this.affinite = affinite;
     }
+    public String toString(){
+        return "["+visiteur.getNom() + ", "+visiteur.getPrenom()+"] "+ this.affinite+" ["+hote.getNom()+", "+hote.getPrenom()+"]";
+    }
 }
 
