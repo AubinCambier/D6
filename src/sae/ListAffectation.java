@@ -76,6 +76,17 @@ public class ListAffectation {
         }
         return txt;
     }
+    public void exportLisAffectation(String fichiercsv){
+        StringBuilder sb = new StringBuilder();
+
+        sb = chemin(fichiercsv);
+
+        File csvFile = new File(sb.toString());
+
+        String[] format = {"Nom_Visiteur","Prenom_Visiteur", "Nom_Hote", "PrenomHote", "Valeur_Affectation"};
+
+        // renvoie un fichier csv de toutes les affectations ...
+    }
     /*
     public void ajouterStudent(String prenom, String nom, String dateNaissance, String pays, String gender, String pairGender,String guestAnimalAllergy, String hostHasAnimal, String guestFood, String hostFood, String history, String hobbies){
         String[] nouvelleLigne = {prenom,nom,dateNaissance,pays,gender,pairGender,guestAnimalAllergy,hostHasAnimal,guestFood,hostFood,history,hobbies};

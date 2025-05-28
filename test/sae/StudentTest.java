@@ -11,11 +11,11 @@ public class StudentTest {
         @BeforeEach
         public void initialisation() {
 
-                student1=new Student("Matthieu","A","2006-05-02","France","M","M","no","no","no","no","lalala","sport,poney");
-                student2=new Student("Mathéo","Lelong","2007-01-01","France","M","F","no","no","no","no","histoire","sport");
-                student3=new Student("Lucie","Martin","2005-08-15","France","F","M","yes","no","végétarien","aucune","danse","dance");
-                student4=new Student("Carlos","Gomez","2006-03-23","Espagne","M","F","no","yes","aucune","halal","musique","leer");
-                student5=new Student("Aya","Tanaka","2007-12-12","Japon","F","M","yes","yes","sans gluten","végétarien","dessin","leer");
+                student1=new Student("Matthieu","A","2006-05-02","France","true","true","false","false","false","false","lalala","sport,poney");
+                student2=new Student("Mathéo","Lelong","2007-01-01","France","true","false","false","false","false","false","histoire","sport");
+                student3=new Student("Lucie","Martin","2005-08-15","France","false","true","yes","false","végétarien","aucune","danse","dance");
+                student4=new Student("Carlos","Gomez","2006-03-23","Espagne","true","false","false","yes","aucune","halal","musique","leer");
+                student5=new Student("Aya","Tanaka","2007-12-12","Japon","false","true","yes","yes","sans gluten","végétarien","dessin","leer");
         }
 
         @Test
@@ -32,6 +32,6 @@ public class StudentTest {
         }
         @Test
         public void toStringTest(){
-                assertEquals("Matthieu--A--2006-05-02--France--M--M--false--false--no--no--lalala--[sport, poney]", student1.toString());
+                assertEquals("Matthieu--A--2006-05-02--France--true--true--false--false--false--false--lalala--[sport, poney]", student1.toString());
         }
 }

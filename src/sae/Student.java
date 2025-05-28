@@ -22,10 +22,10 @@ public class Student {
     static {
         critere.put("prenom", "T");
         critere.put("nom", "T");
-        critere.put("dateNaissance", "D");
+        critere.put("dateNaissance", "D");      // format "AAAA,MM,JJ"
         critere.put("pays", "T");
-        critere.put("gender", "B");
-        critere.put("pairGender", "B");
+        critere.put("gender", "B");             // true = garçon 
+        critere.put("pairGender", "B");         // true = garçon
         critere.put("guestAnimalAllergy", "B");
         critere.put("hostHasAnimal", "B");
         critere.put("guestFood", "T");
@@ -55,6 +55,7 @@ public class Student {
         }
         information.put("nom", nom);
         try{
+            @SuppressWarnings("unused")
             LocalDate ld=LocalDate.parse(dateNaissance);
             information.put("dateNaissance", dateNaissance);
 
