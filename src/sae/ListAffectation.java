@@ -18,6 +18,8 @@ public class ListAffectation {
         this.students = new ArrayList<Student>();
         this.affectations = new ArrayList<Affectation>();
     }
+
+
     /** retourne la liste d'étudiants */
     public ArrayList<Student> getStudents() {
         return students;
@@ -31,6 +33,22 @@ public class ListAffectation {
     public void addStudent(Student student) {
         this.students.add(student);
     }
+
+
+
+    public void affectationStudents(){
+        for (Student visiteur : students){
+            for (Student hote : students ){
+                if(visiteur.getPays().equals("France") && hote.getPays().equals("Italie")){
+                    Affectation aff = new Affectation(visiteur,hote);
+                    this.affectations.add(aff);
+                }
+            }
+        }
+    }
+
+
+
     public StringBuilder chemin(String fichiercsv){
         StringBuilder sb = new StringBuilder();
 
@@ -62,20 +80,7 @@ public class ListAffectation {
     public void verifierValiditeCritere() {
         // ... vois si les valeurs sont correctes et afficher les lignes et les erreurs éventuelles
     }
-    public String toStringStudents(){
-        String txt = "";
-        for (Student student : students){
-            txt= txt + student.toString() + "\n";
-        }
-        return txt;
-    }
-    public String toStringAffectation(){
-        String txt = "";
-        for (Affectation affectation : affectations){
-            txt = txt + affectation.toString() + "\n";
-        }
-        return txt;
-    }
+    
     public void exportLisAffectation(String fichiercsv){
         StringBuilder sb = new StringBuilder();
 
@@ -102,4 +107,18 @@ public class ListAffectation {
             e.printStackTrace();
         }
             */
+        public String toStringStudents(){
+        String txt = "";
+        for (Student student : students){
+            txt= txt + student.toString() + "\n";
+        }
+        return txt;
+    }
+    public String toStringAffectation(){
+        String txt = "";
+        for (Affectation affectation : affectations){
+            txt = txt + affectation.toString() + "\n";
+        }
+        return txt;
+    }
     }

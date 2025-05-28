@@ -18,10 +18,10 @@ public class Affectation {
      * Constructeur qui initialise l'hôte, le visiteur,
      * et calcule leur affinité.
      */
-    public Affectation(Student hote, Student visiteur) {
+    public Affectation(Student visiteur, Student hote) {
         this.hote = hote;
         this.visiteur = visiteur;
-        this.affinite = hote.calculAffinite(visiteur);
+        this.affinite = visiteur.calculAffinite(visiteur);
     }
 
     /** Renvoie l'étudiant hôte.*/

@@ -276,11 +276,12 @@ public class Student {
 
         // Calcul de l'affinité basée sur les genres : 
         // si le genre partenaire correspond au genre de l'autre personne, on ajoute 1.5
-        if (this.getPairGender().equals(student.getGender())) {
+
+        if (this.getPairGender() == student.getGender()) {
             affinite = affinite + 1.5;
         }
         // pareille dans l'autre sens
-        if (this.getGender().equals(student.getPairGender())) {
+        if (this.getGender() == student.getPairGender()) {
             affinite = affinite + 1.5;
         }
 
