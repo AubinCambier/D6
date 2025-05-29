@@ -8,5 +8,7 @@ public class Main {
         System.out.println("------\n");
         list.affectationStudents();
         System.out.println(list.toStringAffectation());
+        System.out.println("------\n");
+        list.exportLisAffectation("affectation.csv");
     }
 }

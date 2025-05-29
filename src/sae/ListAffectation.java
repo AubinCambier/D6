@@ -3,8 +3,10 @@ package sae;
 import java.util.ArrayList;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class ListAffectation {
@@ -88,7 +90,19 @@ public class ListAffectation {
 
         File csvFile = new File(sb.toString());
 
-        String[] format = {"Nom_Visiteur","Prenom_Visiteur", "Nom_Hote", "PrenomHote", "Valeur_Affectation"};
+        String format = "Nom_Visiteur;Prenom_Visiteur;Nom_Hote;PrenomHote;Valeur_Affectation";
+
+        try(FileWriter fw = new FileWriter(sb.toString());BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(format);
+            bw.newLine();
+            for (Affectation aff : affectations){
+                bw.write(aff.toString());
+                bw.newLine();
+
+            }
+        }catch (IOException e){
+            System.out.println(e);
+        }
 
         // renvoie un fichier csv de toutes les affectations ...
     }
