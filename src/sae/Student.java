@@ -320,5 +320,4 @@ public class Student {
     public String toString(){
         return ""+getPrenom()+"--"+getNom()+"--"+getDateNaissance(getDateNaissance())+"--"+getPays()+"--"+getGender()+"--"+getPairGender()+"--"+getGuestAnimalAllergy()+"--"+getHostHasAnimal()+"--"+getGuestFood()+"--"+getHostFood()+"--"+getHistory()+"--"+getHobbies();
     }
-
 }

@@ -96,7 +96,9 @@ public class ListAffectation {
             bw.write(format);
             bw.newLine();
             for (Affectation aff : affectations){
-                bw.write(aff.toString());
+                String ligne = "";
+                ligne = ""+aff.getVisiteur().getNom()+";"+aff.getVisiteur().getPrenom()+";"+aff.getHote().getNom()+";"+aff.getVisiteur().getPrenom()+";"+aff.getAffinite();
+                bw.write(ligne);
                 bw.newLine();
 
             }
