@@ -2,5 +2,5 @@ Prenom;Nom;DateNaissance;Pays;Gender;PairGender;GuestAnimalAllergy;HostHasAnimal
 Matthieu;A;2006-05-02;France;true;true;false;false;false;false;lalala;sport,poney
 Mathéo;Lelong;2007-01-01;France;true;false;false;false;false;false;histoire;sport
 Lucie;Martin;2005-08-15;France;false;true;true;false;true;aucune;danse;dance
-Carlos;Gomez;2006-03-23;Italie;true;false;false;true;false;halal;musique;leer
+Carlos;Gomez;2006-03-23;Italie;true;false;false;true;false;halal;musique;leer,chanter
 Aya;Tanaka;2007-12-12;Italie;false;true;true;true;true;végétarien;dessin;leer
