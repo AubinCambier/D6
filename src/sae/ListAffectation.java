@@ -1,7 +1,7 @@
 package sae;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -88,8 +88,6 @@ public class ListAffectation {
 
         sb = chemin(fichiercsv);
 
-        File csvFile = new File(sb.toString());
-
         String format = "Nom_Visiteur;Prenom_Visiteur;Nom_Hote;PrenomHote;Valeur_Affectation";
 
         try(FileWriter fw = new FileWriter(sb.toString());BufferedWriter bw = new BufferedWriter(fw)) {
@@ -107,6 +105,25 @@ public class ListAffectation {
         }
 
         // renvoie un fichier csv de toutes les affectations ...
+    }
+
+    public void selectionStudents(int quantité){
+        if (quantité > 0 && students.size()!=0){
+            for(Student st : students){
+                //on vérifie s'il y a des incohérence dans les données
+                if (st.getHostHasAnimal() && st.getGuestAnimalAllergy()){
+                    students.remove(st);
+                    quantité = quantité -1;
+                }
+                if (quantité == 0) return;
+            }
+            //on élimine aléatoirement des élèves
+            while (quantité !=0 && students.size() != 0){
+                Random rand = new Random();
+                int index = rand.nextInt(students.size());
+                students.remove(index);
+            }
+        }
     }
     /*
     public void ajouterStudent(String prenom, String nom, String dateNaissance, String pays, String gender, String pairGender,String guestAnimalAllergy, String hostHasAnimal, String guestFood, String hostFood, String history, String hobbies){
