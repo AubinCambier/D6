@@ -108,20 +108,28 @@ public class ListAffectation {
     }
 
     public void selectionStudents(int quantité){
-        if (quantité > 0 && students.size()!=0){
-            for(Student st : students){
-                //on vérifie s'il y a des incohérence dans les données
-                if (st.getHostHasAnimal() && st.getGuestAnimalAllergy()){
-                    students.remove(st);
+        if (quantité == 0){
+            System.out.println("tu veux supprimer aucun étudiants");
+            return;
+        }
+        if (students.size()!=0){
+
+            //on élimine students qui ont des valeurs incohérentes 
+            int longueur = students.size();
+            for (int i=longueur -1;i>=0;i=i-1){
+                if(students.get(i).getHostHasAnimal()&& students.get(i).getGuestAnimalAllergy() && quantité > 0){
+                    System.out.println("Cet étudiant comprend des valeurs incohérentes "+ students.get(i).toString());
+                    students.remove(i);
                     quantité = quantité -1;
                 }
-                if (quantité == 0) return;
             }
             //on élimine aléatoirement des élèves
+            Random rand = new Random();
             while (quantité !=0 && students.size() != 0){
-                Random rand = new Random();
                 int index = rand.nextInt(students.size());
+                System.out.println("l'étudiant est supprimé "+ students.get(index).toString());
                 students.remove(index);
+                quantité = quantité -1;
             }
         }
     }

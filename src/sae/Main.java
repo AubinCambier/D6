@@ -9,6 +9,10 @@ public class Main {
         list.affectationStudents();
         System.out.println(list.toStringAffectation());
         System.out.println("------\n");
+        
+        list.selectionStudents(2);
         list.exportLisAffectation("affectation.csv");
+        System.out.println("------\n");
+        System.out.println(list.toStringStudents());
     }
 }
