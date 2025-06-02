@@ -1,15 +1,16 @@
 package sae;
 
-import java.util.ArrayList;
-import java.util.Random;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Random;
 
-public class ListAffectation {
+public class ListAffectation implements Serializable{
     /**liste d'etudiants */
     private ArrayList<Student> students;
     /**liste d'affectation */
