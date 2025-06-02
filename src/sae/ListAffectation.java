@@ -85,7 +85,14 @@ public class ListAffectation {
     public boolean verifierValiditeCritere(String[] st) {
         //conditions 
         if(st.length != 12){
+            System.out.println("Il manque des valeur à "+st[1]);
             return false;
+        }
+        for (int i =4; i<7 ; i++){
+            if (!(st[i].equals("true")||st[i].equals("false"))){
+                System.out.println("Erreur valeur boolean à " +st[1]);
+                return false;
+            }
         }
         // ... vois si les valeurs sont correctes et afficher les lignes et les erreurs éventuelles
         return true;
