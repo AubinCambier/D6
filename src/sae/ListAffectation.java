@@ -15,6 +15,11 @@ public class ListAffectation implements Serializable{
     private ArrayList<Student> students;
     /**liste d'affectation */
     private ArrayList<Affectation> affectations;
+    private int nbVisiteur = 0;
+    private int nbHote = 0;
+
+    private final String PAYSHOTE = "Italie";
+    private final String PAYSVISITEUR = "France";
 
     /**constructeur principale initialisant la liste d'étudiants et la liste d'affectation */
     public ListAffectation() {
@@ -38,6 +43,11 @@ public class ListAffectation implements Serializable{
     }
     public void trieAffectation(){
         // cherche la meilleur combinaison possible pour valider un maximum de critères
+        try(FileWriter writer = new FileWriter(chemin("tableauAffectation").toString())){
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void affectationStudents(){
@@ -76,7 +86,6 @@ public class ListAffectation implements Serializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //supprimer la première ligne car elle sert à se repérer dans les valeurs à ajouter
     }
 
     /**methode permettant de verifier si l'étudiant est valide */
@@ -90,7 +99,7 @@ public class ListAffectation implements Serializable{
             if (!(st[i].equals("true")||st[i].equals("false"))){
                 System.out.println("Erreur valeur boolean à " +st[1]);
                 return false;
-            }
+            }   
         }
         // ... vois si les valeurs sont correctes et afficher les lignes et les erreurs éventuelles
         return true;
@@ -143,6 +152,16 @@ public class ListAffectation implements Serializable{
                 System.out.println("l'étudiant est supprimé "+ students.get(index).toString());
                 students.remove(index);
                 quantité = quantité -1;
+            }
+        }
+    }
+
+    public void calculerNbStudent(){
+        for (Student stu : students){
+            if (stu.getPays().equals(this.PAYSVISITEUR)){
+                this.nbVisiteur += 1;
+            }else if (stu.getPays().equals(this.PAYSHOTE)){
+                this.nbHote += 1;
             }
         }
     }

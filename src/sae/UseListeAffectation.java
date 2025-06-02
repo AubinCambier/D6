@@ -10,16 +10,20 @@ public class UseListeAffectation {
         System.out.println(list.toStringStudents());
         System.out.println("------\n");
 
+        System.out.println("--On calcul le nombre d'étudiant hote et visiteur--");
+        list.calculerNbStudent();
+        System.out.println("--Puis on peut supprimer des élèves si nécessaire--");
+        // a faire une methode pour retirer un élève qui possèdes un critère en particulier. (qui est de France ou Italie) pour avoir le meme nombre
+
         System.out.println("--On créé toutes les affectation entre les étudiants puis on les affiches--");
         list.affectationStudents();
         System.out.println(list.toStringAffectation());
         System.out.println("------\n");
 
         System.out.println("--on réalise les meilleurs affectations entre les étudiants--");
-        list.trieAffectation();
+        // a finir trouver la meilleur affectation possible avec l'aide du parcour de graphe CalculAffectation<S> du .jar dans graphe        
+        list.trieAffectation();     
         System.out.println(list.toStringAffectation());
-
-        // a finir trouver la meilleur affectation possible avec l'aide du parcour de graphe CalculAffectation<S> du .jar dans graphe
 
         System.out.println("--retirer des étudiants si besoins--");
         list.selectionStudents(2);
