@@ -19,12 +19,14 @@ public class UseListeAffectation {
         list.trieAffectation();
         System.out.println(list.toStringAffectation());
 
+        // a finir trouver la meilleur affectation possible avec l'aide du parcour de graphe CalculAffectation<S> du .jar dans graphe
+
         System.out.println("--retirer des étudiants si besoins--");
         list.selectionStudents(2);
 
         // apres modification, faut refaire les affectations
 
-        
+
         // — Afficher les contraintes rédhibitoires non satisfaites.        a faire
 
         System.out.println("--créé un fichier csv des affectation entre les étudiants--");
