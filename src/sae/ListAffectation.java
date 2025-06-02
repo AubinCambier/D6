@@ -133,7 +133,7 @@ public class ListAffectation {
             int longueur = students.size();
             for (int i=longueur -1;i>=0;i=i-1){
                 if(students.get(i).getHostHasAnimal()&& students.get(i).getGuestAnimalAllergy() && quantité > 0){
-                    System.out.println("Cet étudiant comprend des valeurs incohérentes "+ students.get(i).toString());
+                    System.out.println("Cet étudiant comprend des valeurs incohérentes sur les animaux "+ students.get(i).toString());
                     students.remove(i);
                     quantité = quantité -1;
                 }
