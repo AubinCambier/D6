@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="603.0" prefWidth="1073.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurListAparaiement">
+   <top>
+      <BorderPane prefHeight="54.0" prefWidth="559.0" BorderPane.alignment="CENTER">
+         <right>
+            <BorderPane prefHeight="203.0" prefWidth="179.0" BorderPane.alignment="CENTER">
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </left>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </center>
+               <right>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </right>
+         <top>
+            <BorderPane prefHeight="160.0" prefWidth="1079.0" BorderPane.alignment="CENTER">
+               <left>
+                  <Button fx:id="boutonCalculerApparaiement" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Calculer Apparaiement" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="15.0" left="40.0" top="15.0" />
+                     </BorderPane.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </left>
+               <center>
+                  <Label fx:id="TitleListAparaiement" text="LISTE APPARAIEMENT" underline="true" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </center>
+               <right>
+                  <GridPane prefHeight="68.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <CheckBox contentDisplay="CENTER" mnemonicParsing="false" onDragDropped="#CheckboxCritere1Dropped" onDragExited="#CheckboxCritere1Exited" text="Critere 1" textAlignment="CENTER" />
+                        <ComboBox id="comboBoxCritere1" fx:id="comboBoxCritere1" prefWidth="150.0" GridPane.columnIndex="1" />
+                        <CheckBox mnemonicParsing="false" text="Critere 2" GridPane.rowIndex="1" />
+                        <CheckBox mnemonicParsing="false" text="Critere 3" GridPane.rowIndex="2" />
+                        <ComboBox id="comboBoxCritere1" fx:id="comboBoxCritere2" layoutX="97.0" layoutY="12.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox id="comboBoxCritere1" fx:id="comboBoxCritere3" layoutX="97.0" layoutY="40.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <CheckBox contentDisplay="CENTER" layoutX="20.0" layoutY="16.0" mnemonicParsing="false" text="Critere 4" textAlignment="CENTER" GridPane.rowIndex="3" />
+                        <ComboBox id="comboBoxCritere1" fx:id="comboBoxCritere4" layoutX="97.0" layoutY="68.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <CheckBox contentDisplay="CENTER" layoutX="20.0" layoutY="100.0" mnemonicParsing="false" text="Critere 5" textAlignment="CENTER" GridPane.rowIndex="4" />
+                        <ComboBox id="comboBoxCritere1" fx:id="comboBoxCritere5" layoutX="97.0" layoutY="96.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="40.0" top="40.0" />
+                     </BorderPane.margin>
+                  </GridPane>
+               </right>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </BorderPane>
+         </top>
+      </BorderPane>
+   </top>
+   <left>
+      <VBox prefHeight="443.0" prefWidth="216.0" style="-fx-border-color: blue; -fx-border-width: 2px; -fx-background-color: transparent; -fx-border-style: dashed;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="40.0" />
+         </BorderPane.margin>
+         <children>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

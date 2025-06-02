@@ -1,3 +1,4 @@
+
 package ihm;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class AppIhm extends Application {
 
         public void start(Stage stage) throws IOException {
                 FXMLLoader loader = new FXMLLoader();
-                URL fxmlFileUrl = getClass().getResource("menu.fxml");
+                URL fxmlFileUrl = getClass().getResource("ListApparaiement.fxml");
                 if (fxmlFileUrl == null) {
                         System.out.println("Impossible de charger le fichier fxml");
                         System.exit(-1);
@@ -23,11 +24,12 @@ public class AppIhm extends Application {
                 Parent root = loader.load();
 
                 Scene scene = new Scene(root);
+
+
                 stage.setScene(scene);
                 stage.setTitle("Menu");
                 stage.show();
         }
-
         public static void main(String[] args) {
                 Application.launch(args);
         }
