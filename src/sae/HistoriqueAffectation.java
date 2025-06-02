@@ -21,20 +21,20 @@ public class HistoriqueAffectation{
         }
     }
 
-    public static Affectation getHistorique(String year){
-        Affectation affectation = null;
+    public static ListAffectation getHistorique(String year){
+        ListAffectation affectations = null;
         StringBuilder chemin = new StringBuilder();
         chemin.append(System.getProperty("user.dir")).append(File.separator).append("doc").append(File.separator).append(year);
         try {
             FileInputStream fis = new FileInputStream(chemin.toString());
             ObjectInputStream ois = new ObjectInputStream(fis);
-            affectation = (Affectation) ois.readObject();
+            affectations = (ListAffectation) ois.readObject();
             ois.close();
         } catch (final java.io.IOException e) {
             e.printStackTrace();
         } catch( ClassNotFoundException e){
             System.out.println("ClassNotFoundException");
         }
-        return affectation;
+        return affectations;
     }
 }
