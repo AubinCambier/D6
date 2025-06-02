@@ -36,8 +36,9 @@ public class ListAffectation implements Serializable{
     public void addStudent(Student student) {
         this.students.add(student);
     }
-
-
+    public void trieAffectation(){
+        // cherche la meilleur combinaison possible pour valider un maximum de critères
+    }
 
     public void affectationStudents(){
         for (Student visiteur : students){
@@ -49,8 +50,6 @@ public class ListAffectation implements Serializable{
             }
         }
     }
-
-
 
     public StringBuilder chemin(String fichiercsv){
         StringBuilder sb = new StringBuilder();
@@ -73,13 +72,11 @@ public class ListAffectation implements Serializable{
                 if(verifierValiditeCritere(student)){
                     this.students.add(new Student(student[0],student[1],student[2],student[3],student[4],student[5],student[6],student[7],student[8],student[9],student[10],student[11]));
                 }
-                
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         //supprimer la première ligne car elle sert à se repérer dans les valeurs à ajouter
-        students.remove(0);
     }
 
     /**methode permettant de verifier si l'étudiant est valide */
