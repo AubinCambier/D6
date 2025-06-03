@@ -2,11 +2,18 @@ package ihm;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import sae.Student;
 
 public class ControleurEtudiant {
+    @FXML
+    Button buttonMenu;
+    @FXML
+    Button buttonRetour;
     @FXML
     Label labelName;
     @FXML
@@ -53,6 +60,28 @@ public class ControleurEtudiant {
         boxGuestAnimalAllergy.setSelected(s.getGuestAnimalAllergy());
         boxHasAnimal.setDisable(true);
         boxGuestAnimalAllergy.setDisable(true);
+
+        ImageView imageMenu = null;
+        try{
+            imageMenu = new ImageView(new Image("file:doc/img/Menu.png"));
+            imageMenu.setFitWidth(30);
+            imageMenu.setFitHeight(30);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+        buttonMenu.setGraphic(imageMenu);
+        buttonMenu.setText("");
+
+        ImageView imageRetour = null;
+        try{
+            imageRetour = new ImageView(new Image("file:doc/img/retour.png"));
+            imageRetour.setFitWidth(30);
+            imageRetour.setFitHeight(30);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+        buttonRetour.setGraphic(imageRetour);
+        buttonRetour.setText("");
     }
 
     public void pressedButtonMenu(ActionEvent event){

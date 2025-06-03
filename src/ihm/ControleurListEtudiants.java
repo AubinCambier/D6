@@ -20,7 +20,6 @@ import sae.ListAffectation;
 import sae.Student;
 
 public class ControleurListEtudiants {
-    ArrayList<Student> students;
 
     @FXML
     Button buttonMenu;
@@ -32,11 +31,7 @@ public class ControleurListEtudiants {
     HBox boxListEtudiants;
 
     public void initialize() {
-        ListAffectation list = new ListAffectation();
-        list.chargerCSV("infoetu.csv");
-        students = list.getStudents();
-
-        for(Student s: students){
+        for(Student s: AppIhm.students){
             addListStudent(s);
         }
 
@@ -80,10 +75,10 @@ public class ControleurListEtudiants {
 
         bp.setOnMouseClicked(e -> {
             int i = etudiants.getSelectionModel().getSelectedIndices().get(0);
-            AppIhm.selectedEtudiant = students.get(i);
+            AppIhm.selectedEtudiant = AppIhm.students.get(i);
 
             FXMLLoader loader = new FXMLLoader();
-            URL fxmlFileUrl = getClass().getResource("etudiant.fxml");
+            URL fxmlFileUrl = getClass().getResource("fxml/etudiant.fxml");
             if (fxmlFileUrl == null) {
                     System.out.println("Impossible de charger le fichier fxml");
                     System.exit(-1);

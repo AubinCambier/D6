@@ -322,7 +322,8 @@ public class Student {
         return affinite;
     }
     
+    @Override
     public String toString(){
-        return ""+getPrenom()+"--"+getNom()+"--"+getDateNaissance(getDateNaissance())+"--"+getPays()+"--"+getGender()+"--"+getPairGender()+"--"+getGuestAnimalAllergy()+"--"+getHostHasAnimal()+"--"+getGuestFood()+"--"+getHostFood()+"--"+getHistory()+"--"+getHobbies();
+        return ""+getNom()+" "+getPrenom();
     }
 }

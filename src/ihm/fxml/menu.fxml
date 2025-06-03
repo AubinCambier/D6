@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurMenu">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurMenu">
    <children>
-      <Button mnemonicParsing="false" onAction="#bouttonEtudiants" prefHeight="47.0" prefWidth="280.0" text="Etudiants" textAlignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#buttonEtudiants" prefHeight="47.0" prefWidth="280.0" text="Etudiants" textAlignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
@@ -23,7 +23,7 @@
             <Insets bottom="50.0" />
          </VBox.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="281.0" text="Critères" textAlignment="CENTER" textOverrun="CLIP">
+      <Button mnemonicParsing="false" onAction="#buttonCriteres" prefHeight="47.0" prefWidth="281.0" text="Critères" textAlignment="CENTER" textOverrun="CLIP">
          <font>
             <Font size="25.0" />
          </font>
