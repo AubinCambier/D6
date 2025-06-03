@@ -1,6 +1,5 @@
 package ihm;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
@@ -8,13 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.BorderPane;
 import sae.ListAffectation;
 import sae.Student;
 
 public class ControleurListEtudiants {
     @FXML
-    ListView<HBox> etudiants;
+    ListView<BorderPane> etudiants;
 
     public void initialize() {
         ListAffectation list = new ListAffectation();
@@ -27,18 +26,19 @@ public class ControleurListEtudiants {
     }
 
     public void addListStudent(Student student){
-        HBox h = new HBox();
-        Label nom = new Label(student.getNom());
-        Label prenom = new Label(student.getPrenom());
+        BorderPane bp = new BorderPane();
+        Label nom = new Label(student.getNom() + " " + student.getPrenom());
         ImageView image = null;
         try{
             image = new ImageView(new Image("file:doc/img/icone_personne.jpg"));
         }catch(NullPointerException e){
             e.printStackTrace();
         }
-        
+        image.setFitWidth(50);
+        image.setFitHeight(50);
 
-        h.getChildren().addAll(nom,prenom,image);
-        etudiants.getItems().add(h);
+        bp.setCenter(nom);
+        bp.setRight(image);
+        etudiants.getItems().add(bp);
     }
 }
