@@ -16,8 +16,7 @@ public class UseListeAffectation {
 
         System.out.println("--retirer des étudiants si besoins pour avoir le même nombre de hote et visiteurs--");
         list.selectionStudents();
-        // a faire une methode pour retirer un élève qui possèdes un critère en particulier. (qui est de France ou Italie) pour avoir le meme nombre
-
+        
         System.out.println("--On créé toutes les affectation entre les étudiants puis on les affiches--");
         list.affectationStudents();
         System.out.println(list.toStringAffectation());

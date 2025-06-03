@@ -51,7 +51,7 @@ public class ListAffectation implements Serializable{
     public void trieAffectation(){
         // cherche la meilleur combinaison possible pour valider un maximum de critères
         try(FileWriter writer = new FileWriter(chemin("tableauAffectation").toString())){
-
+            
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -139,11 +139,11 @@ public class ListAffectation implements Serializable{
     public void selectionStudents(){
         String paysTrop;
         int quantite =0;
-        if (this.nbHote > this.nbVisiteur) {
+        if (this.nbHote < this.nbVisiteur) {
             quantite = this.nbVisiteur - this.nbHote;
             paysTrop = "France";
         }
-        else if (this.nbHote <  this.nbVisiteur){
+        else if (this.nbHote >  this.nbVisiteur){
             quantite = this.nbHote - this.nbVisiteur;
             paysTrop = "Italie";
         }
@@ -158,7 +158,6 @@ public class ListAffectation implements Serializable{
             int longueur = students.size();
             for (int i=longueur -1;i>=0;i=i-1){
                 if(students.get(i).getHostHasAnimal()&& students.get(i).getGuestAnimalAllergy() && quantite != 0 && students.get(i).getPays().equals(paysTrop)){
-                    System.out.print(quantite+"");
                     System.out.println("Cet étudiant comprend des valeurs incohérentes sur les animaux "+ students.get(i).toString());
                     students.remove(i);
                     quantite --;
@@ -173,12 +172,13 @@ public class ListAffectation implements Serializable{
                     students.remove(index);
                     quantite = quantite -1;
                 }
-                
             }
         }
     }
 
     public void calculerNbStudent(){
+        this.nbVisiteur = 0;
+        this.nbHote =0;
         for (Student stu : students){
             if (stu.getPays().equals(ListAffectation.PAYSVISITEUR)){
                 this.nbVisiteur += 1;
