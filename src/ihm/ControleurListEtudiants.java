@@ -1,8 +1,15 @@
 package ihm;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -12,17 +19,39 @@ import sae.ListAffectation;
 import sae.Student;
 
 public class ControleurListEtudiants {
+    ArrayList<Student> students;
+
+    @FXML
+    Button buttonMenu;
+    @FXML
+    Button buttonRetour;
     @FXML
     ListView<BorderPane> etudiants;
 
     public void initialize() {
         ListAffectation list = new ListAffectation();
         list.chargerCSV("infoetu.csv");
-        ArrayList<Student> students = list.getStudents();
+        students = list.getStudents();
 
         for(Student s: students){
             addListStudent(s);
         }
+
+        ImageView imageMenu = null;
+        try{
+            imageMenu = new ImageView(new Image("file:doc/img/Menu.jpg"));
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+        buttonMenu.setGraphic(imageMenu);
+
+        ImageView imageRetour = null;
+        try{
+            imageRetour = new ImageView(new Image("file:doc/img/retour.jpg"));
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+        buttonRetour.setGraphic(imageRetour);
     }
 
     public void addListStudent(Student student){
@@ -39,6 +68,38 @@ public class ControleurListEtudiants {
 
         bp.setCenter(nom);
         bp.setRight(image);
+
+        bp.setOnMouseClicked(e -> {
+            int i = etudiants.getSelectionModel().getSelectedIndices().get(0);
+            AppIhm.selectedEtudiant = students.get(i);
+
+            FXMLLoader loader = new FXMLLoader();
+            URL fxmlFileUrl = getClass().getResource("etudiant.fxml");
+            if (fxmlFileUrl == null) {
+                    System.out.println("Impossible de charger le fichier fxml");
+                    System.exit(-1);
+            }
+            loader.setLocation(fxmlFileUrl);
+            Parent root = null;
+            try{
+                root = loader.load();
+            }catch(IOException io){
+                io.printStackTrace();
+            }
+            
+            AppIhm.sceneEtudiant = new Scene(root);
+            
+            AppIhm.stageA.setScene(AppIhm.sceneEtudiant);
+        });
+
         etudiants.getItems().add(bp);
+    }
+
+    public void pressedButtonMenu(ActionEvent event){
+        AppIhm.stageA.setScene(AppIhm.sceneMenu);
+    }
+
+    public void pressedButtonRetour(ActionEvent event){
+        AppIhm.stageA.setScene(AppIhm.sceneMenu);
     }
 }

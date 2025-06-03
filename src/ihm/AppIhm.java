@@ -2,16 +2,22 @@
 package ihm;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.net.URL;
+import sae.Student;
 
 public class AppIhm extends Application {
+        public static Stage stageA = new Stage();
+        public static Scene sceneMenu;
+        public static Scene sceneListEtudiants;
+        public static Scene sceneEtudiant;
+
+        public static Student selectedEtudiant;
 
         public void start(Stage stage) throws IOException {
                 FXMLLoader loader = new FXMLLoader();
@@ -23,11 +29,11 @@ public class AppIhm extends Application {
                 loader.setLocation(fxmlFileUrl);
                 Parent root = loader.load();
 
-                Scene scene = new Scene(root);
+                sceneMenu = new Scene(root);
                 
-                stage.setScene(scene);
-                stage.setTitle("Menu");
-                stage.show();
+                stageA.setScene(sceneMenu);
+                stageA.setTitle("Sae");
+                stageA.show();
         }
 
         public static void main(String[] args) {

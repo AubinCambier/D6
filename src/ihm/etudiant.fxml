@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurEtudiant">
+   <top>
+      <HBox prefHeight="59.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#pressedButtonMenu" text="Button" />
+            <Button mnemonicParsing="false" onAction="#pressedButtonRetour" text="Button">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="History" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="248.0" prefWidth="600.0">
+               <children>
+                  <VBox prefHeight="262.0" prefWidth="300.0">
+                     <children>
+                        <HBox prefHeight="54.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Name :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelName" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="58.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Forename :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelForename" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="55.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Country :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelCountry" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="59.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Birth date :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelBirthDate" text="Label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="262.0" prefWidth="300.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
