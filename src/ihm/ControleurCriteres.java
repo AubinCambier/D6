@@ -4,10 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import sae.Affectation;
 import sae.Student;
 
 public class ControleurCriteres {
@@ -56,11 +58,27 @@ public class ControleurCriteres {
         HBox h = new HBox();
         ChoiceBox<Student> choiceBox1 = new ChoiceBox<Student>();
         ChoiceBox<Student> choiceBox2 = new ChoiceBox<Student>();
+        Button buttonPlus = new Button("+");
         
         choiceBox1.getItems().addAll(AppIhm.students);
         choiceBox2.getItems().addAll(AppIhm.students);
+        
+        h.getChildren().addAll(choiceBox1,choiceBox2,buttonPlus);
 
-        h.getChildren().addAll(choiceBox1,choiceBox2);
+        buttonPlus.setOnAction(e -> {
+            Student student1 = choiceBox1.getValue();
+            Student student2 = choiceBox2.getValue();
+
+            Affectation affect = new Affectation(student1, student2);
+
+            AppIhm.affectations.add(affect);
+            AppIhm.affectationsFixer.add(affect);
+
+            h.getChildren().removeAll(choiceBox1,choiceBox2,buttonPlus);
+            Label labelStudent1 = new Label(student1.toString());
+            Label labelStudent2 = new Label(student2.toString());
+            h.getChildren().addAll(labelStudent1,new Label("     "),labelStudent2);
+        });
 
         listViewFixer.getItems().add(h);
     }
@@ -69,11 +87,26 @@ public class ControleurCriteres {
         HBox h = new HBox();
         ChoiceBox<Student> choiceBox1 = new ChoiceBox<Student>();
         ChoiceBox<Student> choiceBox2 = new ChoiceBox<Student>();
+        Button buttonPlus = new Button("+");
         
         choiceBox1.getItems().addAll(AppIhm.students);
         choiceBox2.getItems().addAll(AppIhm.students);
+        
+        h.getChildren().addAll(choiceBox1,choiceBox2,buttonPlus);
 
-        h.getChildren().addAll(choiceBox1,choiceBox2);
+        buttonPlus.setOnAction(e -> {
+            Student student1 = choiceBox1.getValue();
+            Student student2 = choiceBox2.getValue();
+
+            Affectation affect = new Affectation(student1, student2);
+
+            AppIhm.affectationsEviter.add(affect);
+
+            h.getChildren().removeAll(choiceBox1,choiceBox2,buttonPlus);
+            Label labelStudent1 = new Label(student1.toString());
+            Label labelStudent2 = new Label(student2.toString());
+            h.getChildren().addAll(labelStudent1,new Label("     "),labelStudent2);
+        });
 
         listViewEviter.getItems().add(h);
     }

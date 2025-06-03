@@ -22,12 +22,13 @@ public class AppIhm extends Application {
         public static Scene sceneCriteres;
         public static Scene sceneListAppariements;
 
+        public static ListAffectation listAffectation;
         public static ArrayList<Student> students;
         public static ArrayList<Affectation> affectations;
-        public static Student selectedEtudiant;
-        public static ListAffectation listAffectation;
         public static ArrayList<Affectation> affectationsFixer;
         public static ArrayList<Affectation> affectationsEviter;
+
+        public static Student selectedEtudiant;
 
         public void start(Stage stage) throws IOException {
                 FXMLLoader loader = new FXMLLoader();
@@ -51,6 +52,9 @@ public class AppIhm extends Application {
                 affectations = list.getAffectations();
 
                 affectations.add(new Affectation(students.get(3),students.get(6)));
+
+                affectationsFixer = new ArrayList<>();
+                affectationsEviter = new ArrayList<>();
 
                 //Initialisation Stage
                 loader = new FXMLLoader();

@@ -1,14 +1,19 @@
 package ihm;
 
+import java.io.IOException;
+import java.net.URL;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import sae.Affectation;
 
 public class ControleurListAppariements {
@@ -53,6 +58,25 @@ public class ControleurListAppariements {
 
     public void pressedButtonRetour(ActionEvent event){
         AppIhm.stageA.setScene(AppIhm.sceneMenu);
+    }
+
+    public void pressedButtonReload(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader();
+        URL fxmlFileUrl = getClass().getResource("fxml/listAppariements.fxml");
+        if (fxmlFileUrl == null) {
+                System.out.println("Impossible de charger le fichier fxml");
+                System.exit(-1);
+        }
+        loader.setLocation(fxmlFileUrl);
+        Parent root = null;
+        try{
+                root = loader.load();
+        }catch(IOException e){
+                e.printStackTrace();
+        }
+
+        AppIhm.sceneListAppariements = new Scene(root);
+        AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
     }
 
     public void addAppariements(Affectation a){
