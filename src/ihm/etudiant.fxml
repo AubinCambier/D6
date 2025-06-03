@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -71,7 +72,70 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="262.0" prefWidth="300.0" />
+                  <VBox prefHeight="196.0" prefWidth="301.0">
+                     <children>
+                        <HBox prefHeight="35.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Gender :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelGender" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="41.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Pair Gender :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelPairGender" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="42.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Food :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelFood" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="43.0" prefWidth="301.0">
+                           <children>
+                              <Label text="Guest food constraint :">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelGuestFoodConstraint" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="42.0" prefWidth="301.0">
+                           <children>
+                              <CheckBox fx:id="boxHasAnimal" mnemonicParsing="false" text="Has animal" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="42.0" prefWidth="301.0">
+                           <children>
+                              <CheckBox fx:id="boxGuestAnimalAllergy" mnemonicParsing="false" text="Guest animal allergy" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="600.0">
+               <children>
+                  <Label text="Hobbies :">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="labelHobbies" text="Label" />
                </children>
             </HBox>
          </children>
