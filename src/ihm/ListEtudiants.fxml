@@ -10,7 +10,7 @@
       <ListView fx:id="etudiants" prefHeight="353.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
    </center>
    <top>
-      <HBox prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="boxListEtudiants" prefHeight="56.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#pressedButtonMenu" prefHeight="22.0" prefWidth="79.0" text="Button" />
             <Button fx:id="buttonRetour" mnemonicParsing="false" onAction="#pressedButtonRetour" prefHeight="16.0" prefWidth="85.0" text="Button" />

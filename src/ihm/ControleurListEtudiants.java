@@ -15,6 +15,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import sae.ListAffectation;
 import sae.Student;
 
@@ -27,6 +28,8 @@ public class ControleurListEtudiants {
     Button buttonRetour;
     @FXML
     ListView<BorderPane> etudiants;
+    @FXML
+    HBox boxListEtudiants;
 
     public void initialize() {
         ListAffectation list = new ListAffectation();
@@ -39,19 +42,25 @@ public class ControleurListEtudiants {
 
         ImageView imageMenu = null;
         try{
-            imageMenu = new ImageView(new Image("file:doc/img/Menu.jpg"));
+            imageMenu = new ImageView(new Image("file:doc/img/Menu.png"));
+            imageMenu.setFitWidth(30);
+            imageMenu.setFitHeight(30);
         }catch(NullPointerException e){
             e.printStackTrace();
         }
         buttonMenu.setGraphic(imageMenu);
+        buttonMenu.setText("");
 
         ImageView imageRetour = null;
         try{
-            imageRetour = new ImageView(new Image("file:doc/img/retour.jpg"));
+            imageRetour = new ImageView(new Image("file:doc/img/retour.png"));
+            imageRetour.setFitWidth(30);
+            imageRetour.setFitHeight(30);
         }catch(NullPointerException e){
             e.printStackTrace();
         }
         buttonRetour.setGraphic(imageRetour);
+        buttonRetour.setText("");
     }
 
     public void addListStudent(Student student){
