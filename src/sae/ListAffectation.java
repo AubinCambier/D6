@@ -15,11 +15,12 @@ public class ListAffectation implements Serializable{
     private ArrayList<Student> students;
     /**liste d'affectation */
     private ArrayList<Affectation> affectations;
+
     private int nbVisiteur = 0;
     private int nbHote = 0;
 
-    private final String PAYSHOTE = "Italie";
-    private final String PAYSVISITEUR = "France";
+    private final static String PAYSVISITEUR = "France";
+    private final static String PAYSHOTE = "Italie";
 
     /**constructeur principale initialisant la liste d'étudiants et la liste d'affectation */
     public ListAffectation() {
@@ -36,6 +37,12 @@ public class ListAffectation implements Serializable{
     /**retourne la liste d'affectation */
     public ArrayList<Affectation> getAffectations() {
         return affectations;
+    }
+    public int getNbHote() {
+        return nbHote;
+    }
+    public int getNbVisiteur() {
+        return nbVisiteur;
     }
     /**ajoute un étudiants a la liste d'étudiants */
     public void addStudent(Student student) {
@@ -89,7 +96,7 @@ public class ListAffectation implements Serializable{
     }
 
     /**methode permettant de verifier si l'étudiant est valide */
-    public boolean verifierValiditeCritere(String[] st) {
+    private boolean verifierValiditeCritere(String[] st) {
         //conditions 
         if(st.length != 12){
             System.out.println("Il manque des valeur à "+st[1]);
@@ -129,38 +136,53 @@ public class ListAffectation implements Serializable{
         // renvoie un fichier csv de toutes les affectations ...
     }
 
-    public void selectionStudents(int quantité){
-        if (quantité == 0){
-            System.out.println("tu veux supprimer aucun étudiants");
+    public void selectionStudents(){
+        String paysTrop;
+        int quantite =0;
+        if (this.nbHote > this.nbVisiteur) {
+            quantite = this.nbVisiteur - this.nbHote;
+            paysTrop = "France";
+        }
+        else if (this.nbHote <  this.nbVisiteur){
+            quantite = this.nbHote - this.nbVisiteur;
+            paysTrop = "Italie";
+        }
+        else{
+            System.out.println("il y a autant d'étudiant Hote et Visiteur");
             return;
         }
+
         if (students.size()!=0){
 
             //on élimine students qui ont des valeurs incohérentes 
             int longueur = students.size();
             for (int i=longueur -1;i>=0;i=i-1){
-                if(students.get(i).getHostHasAnimal()&& students.get(i).getGuestAnimalAllergy() && quantité > 0){
+                if(students.get(i).getHostHasAnimal()&& students.get(i).getGuestAnimalAllergy() && quantite != 0 && students.get(i).getPays().equals(paysTrop)){
+                    System.out.print(quantite+"");
                     System.out.println("Cet étudiant comprend des valeurs incohérentes sur les animaux "+ students.get(i).toString());
                     students.remove(i);
-                    quantité = quantité -1;
+                    quantite --;
                 }
             }
             //on élimine aléatoirement des élèves
             Random rand = new Random();
-            while (quantité !=0 && students.size() != 0){
+            while (quantite >0 && students.size() != 0){
                 int index = rand.nextInt(students.size());
-                System.out.println("l'étudiant est supprimé "+ students.get(index).toString());
-                students.remove(index);
-                quantité = quantité -1;
+                if (students.get(index).getPays().equals(paysTrop)){
+                    System.out.println("l'étudiant est supprimé "+ students.get(index).toString());
+                    students.remove(index);
+                    quantite = quantite -1;
+                }
+                
             }
         }
     }
 
     public void calculerNbStudent(){
         for (Student stu : students){
-            if (stu.getPays().equals(this.PAYSVISITEUR)){
+            if (stu.getPays().equals(ListAffectation.PAYSVISITEUR)){
                 this.nbVisiteur += 1;
-            }else if (stu.getPays().equals(this.PAYSHOTE)){
+            }else if (stu.getPays().equals(ListAffectation.PAYSHOTE)){
                 this.nbHote += 1;
             }
         }

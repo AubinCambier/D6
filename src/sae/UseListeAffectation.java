@@ -12,7 +12,10 @@ public class UseListeAffectation {
 
         System.out.println("--On calcul le nombre d'étudiant hote et visiteur--");
         list.calculerNbStudent();
-        System.out.println("--Puis on peut supprimer des élèves si nécessaire--");
+        System.out.println("le nombre de visiteur = "+list.getNbVisiteur() + "\nLe nombre de Hote = "+list.getNbHote());
+
+        System.out.println("--retirer des étudiants si besoins pour avoir le même nombre de hote et visiteurs--");
+        list.selectionStudents();
         // a faire une methode pour retirer un élève qui possèdes un critère en particulier. (qui est de France ou Italie) pour avoir le meme nombre
 
         System.out.println("--On créé toutes les affectation entre les étudiants puis on les affiches--");
@@ -25,10 +28,9 @@ public class UseListeAffectation {
         list.trieAffectation();     
         System.out.println(list.toStringAffectation());
 
-        System.out.println("--retirer des étudiants si besoins--");
-        list.selectionStudents(2);
+        
 
-        // apres modification, faut refaire les affectations
+        // apres chaques modifications, faut refaire les affectations
 
 
         // — Afficher les contraintes rédhibitoires non satisfaites.        a faire

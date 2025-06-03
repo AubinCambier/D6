@@ -269,6 +269,12 @@ public class Student {
     return hobbies;
     }
 
+    public boolean isHote(){
+        if (this.getPays().equals("Italie")){
+            return true;
+        }
+        return false;
+    }
     // calculer l'affinité entre deux étudiants (lui avec un autre.)
     public double calculAffinite(Student student) {
         double affinite = 0;
