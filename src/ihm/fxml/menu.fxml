@@ -15,7 +15,7 @@
             <Insets bottom="50.0" />
          </VBox.margin>
       </Button>
-      <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="279.0" text="Liste Appariements" textAlignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#buttonListAppariements" prefHeight="47.0" prefWidth="279.0" text="Liste Appariements" textAlignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>

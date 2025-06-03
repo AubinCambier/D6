@@ -8,9 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
-public class ListAffectation implements Serializable{
+public class ListAffectation implements Serializable,Iterable<Affectation>{
     /**liste d'etudiants */
     private ArrayList<Student> students;
     /**liste d'affectation */
@@ -48,6 +49,12 @@ public class ListAffectation implements Serializable{
     public void addStudent(Student student) {
         this.students.add(student);
     }
+
+    /**ajoute une affecation a la liste d'affecations */
+    public void addAffectations(Affectation affectation){
+        this.affectations.add(affectation);
+    }
+
     public void trieAffectation(){
         // cherche la meilleur combinaison possible pour valider un maximum de critères
         try(FileWriter writer = new FileWriter(chemin("tableauAffectation").toString())){
@@ -201,5 +208,9 @@ public class ListAffectation implements Serializable{
             txt = txt + affectation.toString() + "\n";
         }
         return txt;
+    }
+
+    public Iterator<Affectation> iterator(){
+        return this.affectations.iterator();
     }
 }

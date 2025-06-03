@@ -80,7 +80,7 @@
                      <children>
                         <HBox prefHeight="25.0" prefWidth="300.0">
                            <children>
-                              <Label text="Fixer appariments">
+                              <Label text="Fixer appariements">
                                  <HBox.margin>
                                     <Insets left="40.0" right="30.0" />
                                  </HBox.margin>
