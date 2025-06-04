@@ -236,15 +236,12 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
 
         int numeroLigne =0;
 
-       
-
-        try (BufferedReader br = new BufferedReader(new FileReader(fichiercsvEntré))){
+        try (BufferedReader br = new BufferedReader(new FileReader(csvEntre.toString()))){
             for(String elem : br.readLine().split(";")){
                 hote.add(elem);
             }
             
-            String lignes;
-            while((lignes = br.readLine()) != null){
+            while(br.readLine() != null){
                 String[] ligne = br.readLine().split(";");
                 visiteur.add(ligne[0]);
                 for (int i = 1; i<ligne.length;i++){
@@ -252,9 +249,64 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
                 }
                 numeroLigne += 1;
             }
+
+            relationVH = algoH(relationVH);
+
             
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e);
         }
+    }
+    public double[][] algoH(double[][] tabl){
+        while (!isFinish(tabl)) {
+            int taille = tabl.length;
+
+            //réduction ligne
+            for (int i =0; i<taille; i++){
+                double minil = Double.MAX_VALUE; //pour avoir la valeur maximal
+                for(int j=0; j<taille; j++){
+                    if (tabl[i][j] < minil){
+                        minil = tabl[i][j];
+                    }
+                }
+                if (minil > 0.0){
+                    for (int k=0; k<taille;k++){
+                            tabl[i][k] -= minil;
+                    }
+                }
+            }
+            //reduction colonne
+            for (int j =0; j<taille; j++){
+                double minic = Double.MAX_VALUE; //pour avoir la valeur maximal
+                for(int i=0; i<taille; i++){
+                    if (tabl[i][j] < minic){
+                        minic = tabl[i][j];
+                    }
+                }
+                if (minic > 0.0){
+                    for (int k=0; k<taille;k++){
+                            tabl[k][j] -= minic;
+                    }
+                }
+            }
+        }
+        return tabl;
+    }
+
+    public boolean isFinish(double[][] tabl){
+        boolean zerotrouve;
+        for (int ligne= 0; ligne<tabl.length; ligne ++){
+            zerotrouve = false;
+            for(int colonne =0; colonne<tabl[ligne].length;colonne++){
+                if(tabl[ligne][colonne] == 0.0){
+                    zerotrouve = true;
+                    break;
+                }
+            }
+            if (!zerotrouve) {
+                return false; //cette ligne n'a pas de 0.0
+            }
+        }
+        return true; // toutes le lignes ont un 0.0
     }
 }
