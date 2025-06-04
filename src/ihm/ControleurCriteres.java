@@ -3,6 +3,7 @@ package ihm;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -21,6 +22,16 @@ public class ControleurCriteres {
     ListView<HBox> listViewFixer;
     @FXML
     ListView<HBox> listViewEviter;
+    @FXML
+    CheckBox checkboxHobbies;
+    @FXML
+    CheckBox checkboxGender;
+    @FXML
+    CheckBox checkboxBirthDate;
+    @FXML
+    CheckBox checkboxAnimalAllergy;
+    @FXML
+    CheckBox checkboxFood;
 
     public void initialize(){
         ImageView imageMenu = null;
@@ -44,6 +55,12 @@ public class ControleurCriteres {
         }
         buttonRetour.setGraphic(imageRetour);
         buttonRetour.setText("");
+
+        checkboxHobbies.setSelected(true);
+        checkboxGender.setSelected(true);
+        checkboxBirthDate.setSelected(true);
+        checkboxAnimalAllergy.setSelected(true);
+        checkboxFood.setSelected(true);
     }
 
     public void pressedButtonMenu(ActionEvent event){
@@ -150,7 +167,23 @@ public class ControleurCriteres {
         AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
     }
 
-    public void pressedCriteres(ActionEvent event){
+    public void pressedCheckboxHobbies(ActionEvent event){
+        AppIhm.enableCriteres.put("hobbies",checkboxHobbies.isSelected());
+    }
 
+    public void pressedCheckboxGender(ActionEvent event){
+        AppIhm.enableCriteres.put("gender",checkboxGender.isSelected());
+    }
+
+    public void pressedCheckboxBirthDate(ActionEvent event){
+        AppIhm.enableCriteres.put("birthDate",checkboxBirthDate.isSelected());
+    }
+
+    public void pressedCheckboxAnimalAllergy(ActionEvent event){
+        AppIhm.enableCriteres.put("animalAllergy",checkboxAnimalAllergy.isSelected());
+    }
+
+    public void pressedCheckboxFood(ActionEvent event){
+        AppIhm.enableCriteres.put("food",checkboxFood.isSelected());
     }
 }

@@ -29,63 +29,108 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#pressedCriteres" text="Critères" />
+            <Button mnemonicParsing="false" text="Critères" />
          </children>
       </HBox>
    </top>
    <center>
       <VBox prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="30.0" prefWidth="600.0">
-               <children>
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <Spinner prefHeight="26.0" prefWidth="100.0" />
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <Spinner prefHeight="26.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-            <HBox prefHeight="30.0" prefWidth="600.0">
-               <children>
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <Spinner prefHeight="26.0" prefWidth="100.0" />
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <Spinner prefHeight="26.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-            <HBox prefHeight="30.0" prefWidth="600.0">
-               <children>
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <Spinner prefHeight="26.0" prefWidth="100.0" />
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <HBox.margin>
-                        <Insets left="50.0" right="50.0" />
-                     </HBox.margin>
-                  </CheckBox>
-                  <Spinner prefHeight="26.0" prefWidth="100.0" />
-               </children>
+            <HBox prefHeight="93.0" prefWidth="600.0">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
+               <children>
+                  <VBox prefHeight="93.0" prefWidth="300.0">
+                     <children>
+                        <BorderPane prefHeight="30.0" prefWidth="300.0">
+                           <left>
+                              <CheckBox fx:id="checkboxHobbies" mnemonicParsing="false" onAction="#pressedCheckboxHobbies" text="Hobbies" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets left="40.0" />
+                                 </BorderPane.margin>
+                              </CheckBox>
+                           </left>
+                           <right>
+                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets right="10.0" />
+                                 </BorderPane.margin>
+                              </Spinner>
+                           </right>
+                        </BorderPane>
+                        <BorderPane prefHeight="30.0" prefWidth="300.0">
+                           <left>
+                              <CheckBox fx:id="checkboxGender" mnemonicParsing="false" onAction="#pressedCheckboxGender" text="Gender" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets left="40.0" />
+                                 </BorderPane.margin>
+                              </CheckBox>
+                           </left>
+                           <right>
+                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets right="10.0" />
+                                 </BorderPane.margin>
+                              </Spinner>
+                           </right>
+                        </BorderPane>
+                        <BorderPane prefHeight="30.0" prefWidth="300.0">
+                           <left>
+                              <CheckBox fx:id="checkboxBirthDate" mnemonicParsing="false" onAction="#pressedCheckboxBirthDate" text="Birth Date" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets left="40.0" />
+                                 </BorderPane.margin>
+                              </CheckBox>
+                           </left>
+                           <right>
+                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets right="10.0" />
+                                 </BorderPane.margin>
+                              </Spinner>
+                           </right>
+                        </BorderPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="93.0" prefWidth="300.0">
+                     <children>
+                        <BorderPane prefHeight="30.0" prefWidth="300.0">
+                           <left>
+                              <CheckBox fx:id="checkboxAnimalAllergy" mnemonicParsing="false" onAction="#pressedCheckboxAnimalAllergy" text="Animal Allergy" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets left="40.0" />
+                                 </BorderPane.margin>
+                              </CheckBox>
+                           </left>
+                           <right>
+                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets right="10.0" />
+                                 </BorderPane.margin>
+                              </Spinner>
+                           </right>
+                        </BorderPane>
+                        <BorderPane prefHeight="30.0" prefWidth="300.0">
+                           <left>
+                              <CheckBox fx:id="checkboxFood" mnemonicParsing="false" onAction="#pressedCheckboxFood" text="Food" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets left="40.0" />
+                                 </BorderPane.margin>
+                              </CheckBox>
+                           </left>
+                           <right>
+                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets right="10.0" />
+                                 </BorderPane.margin>
+                              </Spinner>
+                           </right>
+                        </BorderPane>
+                        <BorderPane prefHeight="30.0" prefWidth="300.0" />
+                     </children>
+                  </VBox>
+               </children>
             </HBox>
             <HBox prefHeight="247.0" prefWidth="600.0">
                <children>
