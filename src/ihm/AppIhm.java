@@ -21,6 +21,7 @@ public class AppIhm extends Application {
         public static Scene sceneEtudiant;
         public static Scene sceneCriteres;
         public static Scene sceneListAppariements;
+        public static ArrayList<Scene> lastScenes;
 
         public static ListAffectation listAffectation;
         public static ArrayList<Student> students;
@@ -55,6 +56,7 @@ public class AppIhm extends Application {
 
                 affectationsFixer = new ArrayList<>();
                 affectationsEviter = new ArrayList<>();
+                lastScenes = new ArrayList<>();
 
                 //Initialisation Stage
                 loader = new FXMLLoader();

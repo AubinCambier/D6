@@ -85,10 +85,30 @@ public class ControleurEtudiant {
     }
 
     public void pressedButtonMenu(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneEtudiant);
         AppIhm.stageA.setScene(AppIhm.sceneMenu);
     }
 
     public void pressedButtonRetour(ActionEvent event){
+        if(!AppIhm.lastScenes.isEmpty())
+        {
+            AppIhm.stageA.setScene(AppIhm.lastScenes.getLast());
+            AppIhm.lastScenes.removeLast();
+        }
+    }
+
+    public void pressedEtudiants(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneEtudiant);
         AppIhm.stageA.setScene(AppIhm.sceneListEtudiants);
+    }
+
+    public void pressedListeAppariements(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneEtudiant);
+        AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
+    }
+
+    public void pressedCriteres(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneEtudiant);
+        AppIhm.stageA.setScene(AppIhm.sceneCriteres);
     }
 }

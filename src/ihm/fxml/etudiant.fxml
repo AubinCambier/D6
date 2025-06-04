@@ -10,14 +10,25 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurEtudiant">
    <top>
-      <HBox prefHeight="59.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#pressedButtonMenu" text="Button" />
             <Button fx:id="buttonRetour" mnemonicParsing="false" onAction="#pressedButtonRetour" text="Button">
                <HBox.margin>
-                  <Insets />
+                  <Insets right="30.0" />
                </HBox.margin>
             </Button>
+            <Button mnemonicParsing="false" onAction="#pressedEtudiants" text="Etudiants">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#pressedListeAppariements" text="Liste Appariements">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#pressedCriteres" text="Critères" />
          </children>
       </HBox>
    </top>

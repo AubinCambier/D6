@@ -47,11 +47,16 @@ public class ControleurCriteres {
     }
 
     public void pressedButtonMenu(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneCriteres);
         AppIhm.stageA.setScene(AppIhm.sceneMenu);
     }
 
     public void pressedButtonRetour(ActionEvent event){
-        AppIhm.stageA.setScene(AppIhm.sceneMenu);
+        if(!AppIhm.lastScenes.isEmpty())
+        {
+            AppIhm.stageA.setScene(AppIhm.lastScenes.getLast());
+            AppIhm.lastScenes.removeLast();
+        }
     }
 
     public void pressedFixerAjouter(ActionEvent event){
@@ -109,5 +114,43 @@ public class ControleurCriteres {
         });
 
         listViewEviter.getItems().add(h);
+    }
+
+    public void pressedFixerSupprimer(ActionEvent event){
+        if(!listViewFixer.getItems().isEmpty())
+        {
+            listViewFixer.getItems().removeLast();
+            if(!AppIhm.affectationsFixer.isEmpty()){
+                AppIhm.affectations.remove(AppIhm.affectationsFixer.getLast());
+                AppIhm.affectationsFixer.removeLast();
+            }
+            
+        }
+        
+    }
+
+    public void pressedEviterSupprimer(ActionEvent event){
+        if(!listViewEviter.getItems().isEmpty())
+        {
+            listViewEviter.getItems().removeLast();
+            if(!AppIhm.affectationsEviter.isEmpty()){
+                AppIhm.affectationsEviter.removeLast();
+            }
+            
+        }
+    }
+
+    public void pressedEtudiants(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneCriteres);
+        AppIhm.stageA.setScene(AppIhm.sceneListEtudiants);
+    }
+
+    public void pressedListeAppariements(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneCriteres);
+        AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
+    }
+
+    public void pressedCriteres(ActionEvent event){
+
     }
 }

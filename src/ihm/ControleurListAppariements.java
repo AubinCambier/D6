@@ -53,11 +53,16 @@ public class ControleurListAppariements {
     }
 
     public void pressedButtonMenu(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneListAppariements);
         AppIhm.stageA.setScene(AppIhm.sceneMenu);
     }
 
     public void pressedButtonRetour(ActionEvent event){
-        AppIhm.stageA.setScene(AppIhm.sceneMenu);
+        if(!AppIhm.lastScenes.isEmpty())
+        {
+            AppIhm.stageA.setScene(AppIhm.lastScenes.getLast());
+            AppIhm.lastScenes.removeLast();
+        }
     }
 
     public void pressedButtonReload(ActionEvent event){
@@ -90,5 +95,19 @@ public class ControleurListAppariements {
         bp.setRight(affinite);
 
         appariements.getItems().add(bp);
+    }
+
+    public void pressedEtudiants(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneListAppariements);
+        AppIhm.stageA.setScene(AppIhm.sceneListEtudiants);
+    }
+
+    public void pressedListeAppariements(ActionEvent event){
+        
+    }
+
+    public void pressedCriteres(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneListAppariements);
+        AppIhm.stageA.setScene(AppIhm.sceneCriteres);
     }
 }

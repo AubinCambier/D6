@@ -10,18 +10,31 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurCriteres">
    <top>
-      <HBox prefHeight="53.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="buttonMenu" mnemonicParsing="false" onAction="#pressedButtonMenu" text="Button" />
-            <Button fx:id="buttonRetour" mnemonicParsing="false" onAction="#pressedButtonRetour" text="Button" />
+            <Button fx:id="buttonRetour" mnemonicParsing="false" onAction="#pressedButtonRetour" text="Button">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#pressedEtudiants" text="Etudiants">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#pressedListeAppariements" text="Liste Appariements">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#pressedCriteres" text="Critères" />
          </children>
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="30.0" prefWidth="600.0">
                <children>
@@ -74,7 +87,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </HBox>
-            <HBox prefHeight="242.0" prefWidth="600.0">
+            <HBox prefHeight="247.0" prefWidth="600.0">
                <children>
                   <VBox prefHeight="194.0" prefWidth="300.0">
                      <children>
@@ -82,13 +95,17 @@
                            <children>
                               <Label text="Fixer appariements">
                                  <HBox.margin>
-                                    <Insets left="40.0" right="30.0" />
+                                    <Insets left="20.0" right="30.0" />
                                  </HBox.margin>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#pressedFixerAjouter" text="Ajouter" />
+                              <Button mnemonicParsing="false" onAction="#pressedFixerAjouter" text="Ajouter">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin></Button>
+                              <Button mnemonicParsing="false" onAction="#pressedFixerSupprimer" text="Supprimer" />
                            </children>
                         </HBox>
-                        <ListView fx:id="listViewFixer" prefHeight="226.0" prefWidth="300.0" />
+                        <ListView fx:id="listViewFixer" prefHeight="237.0" prefWidth="300.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="194.0" prefWidth="300.0">
@@ -97,13 +114,20 @@
                            <children>
                               <Label text="Eviter appariements">
                                  <HBox.margin>
-                                    <Insets left="40.0" right="30.0" />
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#pressedEviterAjouter" text="Ajouter" />
+                              <Button mnemonicParsing="false" onAction="#pressedEviterAjouter" text="Ajouter">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin></Button>
+                              <Button mnemonicParsing="false" onAction="#pressedEviterSupprimer" text="Supprimer" />
                            </children>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
                         </HBox>
-                        <ListView fx:id="listViewEviter" prefHeight="236.0" prefWidth="300.0" />
+                        <ListView fx:id="listViewEviter" prefHeight="248.0" prefWidth="300.0" />
                      </children>
                   </VBox>
                </children>

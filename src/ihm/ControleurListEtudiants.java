@@ -2,7 +2,6 @@ package ihm;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import sae.ListAffectation;
 import sae.Student;
 
 public class ControleurListEtudiants {
@@ -93,6 +91,7 @@ public class ControleurListEtudiants {
             
             AppIhm.sceneEtudiant = new Scene(root);
             
+            AppIhm.lastScenes.add(AppIhm.sceneListEtudiants);
             AppIhm.stageA.setScene(AppIhm.sceneEtudiant);
         });
 
@@ -100,10 +99,29 @@ public class ControleurListEtudiants {
     }
 
     public void pressedButtonMenu(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneListEtudiants);
         AppIhm.stageA.setScene(AppIhm.sceneMenu);
     }
 
     public void pressedButtonRetour(ActionEvent event){
-        AppIhm.stageA.setScene(AppIhm.sceneMenu);
+        if(!AppIhm.lastScenes.isEmpty())
+        {
+            AppIhm.stageA.setScene(AppIhm.lastScenes.getLast());
+            AppIhm.lastScenes.removeLast();
+        }
+    }
+
+    public void pressedEtudiants(ActionEvent event){
+
+    }
+
+    public void pressedListeAppariements(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneListEtudiants);
+        AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
+    }
+
+    public void pressedCriteres(ActionEvent event){
+        AppIhm.lastScenes.add(AppIhm.sceneListEtudiants);
+        AppIhm.stageA.setScene(AppIhm.sceneCriteres);
     }
 }
