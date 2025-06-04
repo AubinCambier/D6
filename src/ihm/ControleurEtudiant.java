@@ -53,8 +53,8 @@ public class ControleurEtudiant {
         }else{
             labelPairGender.setText("Female");
         }
-        labelFood.setText(s.getHostFood());
-        labelGuestFoodConstraint.setText(s.getHostFood());
+        labelFood.setText(s.getHostFood().toString());
+        labelGuestFoodConstraint.setText(s.getHostFood().toString());
         labelHobbies.setText(s.getHobbies().toString());
         boxHasAnimal.setSelected(s.getHostHasAnimal());
         boxGuestAnimalAllergy.setSelected(s.getGuestAnimalAllergy());
