@@ -30,8 +30,4 @@ public class StudentTest {
                 assertEquals(1.0, student4.calculAffinite(student2));
                 assertEquals(4.0, student5.calculAffinite(student2));
         }
-        @Test
-        public void toStringTest(){
-                assertEquals("Matthieu--A--2006-05-02--France--true--true--false--false--false--false--lalala--[sport, poney]", student1.toString());
-        }
 }

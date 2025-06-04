@@ -221,4 +221,9 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
     public Iterator<Affectation> iterator(){
         return this.affectations.iterator();
     }
+
+    public void meilleurAffectation(String fichiercsv){
+        
+
+    }
 }
