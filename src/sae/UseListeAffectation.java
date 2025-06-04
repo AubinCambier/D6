@@ -22,9 +22,11 @@ public class UseListeAffectation {
         System.out.println(list.toStringAffectation());
         System.out.println("------\n");
 
+        System.out.println("--créé un fichier csv bi-partie des affectation entre les étudiants visiteurs et hotes--");
+        list.exportLisAffectation("affectation.csv");
+
         System.out.println("--on réalise les meilleurs affectations entre les étudiants--");
         // a finir trouver la meilleur affectation possible avec l'aide du parcour de graphe CalculAffectation<S> du .jar dans graphe        
-        list.trieAffectation();     
         System.out.println(list.toStringAffectation());
 
         
@@ -34,8 +36,7 @@ public class UseListeAffectation {
 
         // — Afficher les contraintes rédhibitoires non satisfaites.        a faire
 
-        System.out.println("--créé un fichier csv des affectation entre les étudiants--");
-        list.exportLisAffectation("affectation.csv");
+
         System.out.println(list.toStringStudents());
     }
 }

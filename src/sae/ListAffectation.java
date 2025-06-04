@@ -54,16 +54,6 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
     public void addAffectations(Affectation affectation){
         this.affectations.add(affectation);
     }
-
-    public void trieAffectation(){
-        // cherche la meilleur combinaison possible pour valider un maximum de critères
-        try(FileWriter writer = new FileWriter(chemin("tableauAffectation").toString())){
-            
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
     public void affectationStudents(){
         for (Student visiteur : students){
             for (Student hote : students ){

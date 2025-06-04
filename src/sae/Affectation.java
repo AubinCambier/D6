@@ -21,7 +21,7 @@ public class Affectation {
     public Affectation(Student visiteur, Student hote) {
         this.hote = hote;
         this.visiteur = visiteur;
-        this.affinite = visiteur.calculAffinite(visiteur);
+        this.affinite = visiteur.calculAffinite(hote);
     }
 
     /** Renvoie l'étudiant hôte.*/
