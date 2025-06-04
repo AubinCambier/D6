@@ -131,7 +131,7 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
             bw.newLine();
             for (Affectation aff : affectations){
                 String ligne = "";
-                ligne = ""+aff.getVisiteur().getNom()+";"+aff.getVisiteur().getPrenom()+";"+aff.getHote().getNom()+";"+aff.getVisiteur().getPrenom()+";"+aff.getAffinite();
+                ligne = ""+aff.getVisiteur().getNom()+";"+aff.getVisiteur().getPrenom()+";"+aff.getHote().getNom()+";"+aff.getHote().getPrenom()+";"+aff.getAffinite();
                 bw.write(ligne);
                 bw.newLine();
 
