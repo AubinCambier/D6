@@ -243,13 +243,25 @@ public class Student {
     }
 
     /** Retourne les préférences alimentaires de l'invité. */
-    public String getGuestFood() {
-        return information.get("guestFood");
+    public ArrayList<String> getGuestFood(){
+        ArrayList<String> gestFood = new ArrayList<String>();
+        String[] food = information.get("gestFood").split(",");
+
+        for (String valeur : food){
+            gestFood.add(valeur);
+        }
+    return gestFood;
     }
 
     /** Retourne les préférences alimentaires de l'hôte. */
-    public String getHostFood() {
-        return information.get("hostFood");
+    public ArrayList<String> getHostFood(){
+        ArrayList<String> hostFood = new ArrayList<String>();
+        String[] food = information.get("hostFood").split(",");
+
+        for (String valeur : food){
+            hostFood.add(valeur);
+        }
+    return hostFood;
     }
 
     /** Retourne l'historique de l'étudiant. */
