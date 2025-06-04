@@ -221,10 +221,40 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
     }
 
     public void meilleurAffectation(String fichiercsvEntré, String fichiercsvSortie){
-        StringBuilder sb = chemin(fichiercsvSortie);
-        File csvSortie = new File(sb.toString());
+        StringBuilder sbS = chemin(fichiercsvSortie);
+        File csvSortie = new File(sbS.toString());
 
+
+        StringBuilder sbE = chemin(fichiercsvSortie);
+        File csvEntre = new File(sbE.toString());
+
+        //le nb de hotes et de visiteurs sont les meme
         StringReader sr = new StringReader(fichiercsvEntré);
+        ArrayList<String> hote = new ArrayList<>();
+        ArrayList<String> visiteur = new ArrayList<>();
+        double[][] relationVH = new double[nbHote][nbHote];
 
+        int numeroLigne =0;
+
+       
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fichiercsvEntré))){
+            for(String elem : br.readLine().split(";")){
+                hote.add(elem);
+            }
+            
+            String lignes;
+            while((lignes = br.readLine()) != null){
+                String[] ligne = br.readLine().split(";");
+                visiteur.add(ligne[0]);
+                for (int i = 1; i<ligne.length;i++){
+                    relationVH[numeroLigne][i] = Double.parseDouble(ligne[i]);
+                }
+                numeroLigne += 1;
+            }
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 }
