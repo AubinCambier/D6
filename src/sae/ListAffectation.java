@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -73,13 +74,12 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
     }
 
     public void chargerCSV(String fichiercsv) {
-        StringBuilder sb = new StringBuilder();
 
-        sb = chemin(fichiercsv);
+        StringBuilder sb = chemin(fichiercsv);
 
         File csvFile = new File(sb.toString());
 
-         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             String ligne;
             while ((ligne = br.readLine()) != null) {
                 String[] student = ligne.split(";"); 
@@ -111,9 +111,7 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
     
     public void exportLisAffectation(String fichiercsv){
         // renvoie un fichier csv de toutes les affectations
-        StringBuilder sb = new StringBuilder();
-
-        sb = chemin(fichiercsv);
+        StringBuilder sb = chemin(fichiercsv);
 
         String premièreligne = "";
         for(Student stu : students){
@@ -222,8 +220,11 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
         return this.affectations.iterator();
     }
 
-    public void meilleurAffectation(String fichiercsv){
-        
+    public void meilleurAffectation(String fichiercsvEntré, String fichiercsvSortie){
+        StringBuilder sb = chemin(fichiercsvSortie);
+        File csvSortie = new File(sb.toString());
+
+        StringReader sr = new StringReader(fichiercsvEntré);
 
     }
 }

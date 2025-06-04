@@ -29,6 +29,8 @@ public class UseListeAffectation {
         // a finir trouver la meilleur affectation possible avec l'aide du parcour de graphe CalculAffectation<S> du .jar dans graphe        
         System.out.println(list.toStringAffectation());
 
+        list.meilleurAffectation("affectation.csv","affectionM.csv");
+
         
 
         // apres chaques modifications, faut refaire les affectations
