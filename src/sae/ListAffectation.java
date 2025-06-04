@@ -120,27 +120,45 @@ public class ListAffectation implements Serializable,Iterable<Affectation>{
     }
     
     public void exportLisAffectation(String fichiercsv){
+        // renvoie un fichier csv de toutes les affectations
         StringBuilder sb = new StringBuilder();
 
         sb = chemin(fichiercsv);
 
-        String format = "Nom_Visiteur;Prenom_Visiteur;Nom_Hote;PrenomHote;Valeur_Affectation";
-
-        try(FileWriter fw = new FileWriter(sb.toString());BufferedWriter bw = new BufferedWriter(fw)) {
-            bw.write(format);
-            bw.newLine();
-            for (Affectation aff : affectations){
-                String ligne = "";
-                ligne = ""+aff.getVisiteur().getNom()+";"+aff.getVisiteur().getPrenom()+";"+aff.getHote().getNom()+";"+aff.getHote().getPrenom()+";"+aff.getAffinite();
-                bw.write(ligne);
-                bw.newLine();
-
+        String premièreligne = "";
+        for(Student stu : students){
+            if (stu.getPays().equals(PAYSHOTE)){
+                premièreligne = premièreligne+';' + stu.getPrenom();
             }
-        }catch (IOException e){
+        }
+        System.out.println(premièreligne);
+
+//        String format = "Nom_Visiteur;Prenom_Visiteur;Nom_Hote;PrenomHote;Valeur_Affectation";
+
+        try(FileWriter fw = new FileWriter(sb.toString());BufferedWriter bw = new BufferedWriter(fw)){
+            bw.write(premièreligne);
+            bw.newLine();
+
+            String ligne;
+            for (Student stuV : students){
+                ligne = "";
+                if (stuV.getPays().equals("France")){
+                    ligne = ligne + stuV.getPrenom();
+                    for (Student stuH : students){
+                        if (stuH.getPays().equals("Italie")){
+                            Affectation aff = new Affectation(stuV, stuH);
+                            ligne += ";"+aff.getAffinite();
+                        }
+                    }
+                    bw.write(ligne);
+                    bw.newLine();
+                }
+            }
+
+        }catch(IOException e){
             System.out.println(e);
         }
-
-        // renvoie un fichier csv de toutes les affectations ...
+        
     }
 
     public void selectionStudents(){
