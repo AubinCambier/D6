@@ -7,8 +7,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import sae.Affectation;
 import sae.Student;
@@ -69,6 +72,18 @@ public class ControleurCriteres {
      */
     @FXML
     CheckBox checkboxFood;
+    @FXML
+    Spinner<Integer> spinnerHobbies;
+    @FXML
+    Spinner<Integer> spinnerGender;
+    @FXML
+    Spinner<Integer> spinnerBirthDate;
+    @FXML
+    Spinner<Integer> spinnerAnimalAllergy;
+    @FXML
+    Spinner<Integer> spinnerFood;
+
+
     /**
      * methode permettant d'initialiser les ajout sur la page fxml Critere 
      */
@@ -105,6 +120,12 @@ public class ControleurCriteres {
         checkboxBirthDate.setSelected(true); // Active le critère "birthDate"
         checkboxAnimalAllergy.setSelected(true); // Active le critère "animalAllergy"
         checkboxFood.setSelected(true); // Active le critère "food"
+
+        spinnerHobbies.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
+        spinnerGender.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
+        spinnerBirthDate.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
+        spinnerAnimalAllergy.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
+        spinnerFood.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10));
     }
     /**
  * Gère l'action du bouton de menu.
@@ -300,5 +321,25 @@ public void pressedEviterSupprimer(ActionEvent event){
      */
     public void pressedCheckboxFood(ActionEvent event){
         AppIhm.enableCriteres.put("food", checkboxFood.isSelected());
+    }
+
+    public void pressedSpinnerHobbies(MouseEvent event){
+        AppIhm.valuesCriteres.put("hobbies",spinnerHobbies.getValue());
+    }
+
+    public void pressedSpinnerGender(MouseEvent event){
+        AppIhm.valuesCriteres.put("gender",spinnerGender.getValue());
+    }
+
+    public void pressedSpinnerBirthDate(MouseEvent event){
+        AppIhm.valuesCriteres.put("birthDate",spinnerBirthDate.getValue());
+    }
+
+    public void pressedSpinnerAnimalAllergy(MouseEvent event){
+        AppIhm.valuesCriteres.put("animalAllergy",spinnerAnimalAllergy.getValue());
+    }
+
+    public void pressedSpinnerFood(MouseEvent event){
+        AppIhm.valuesCriteres.put("food",spinnerFood.getValue());
     }
 }

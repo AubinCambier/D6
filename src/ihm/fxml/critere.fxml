@@ -52,7 +52,7 @@
                               </CheckBox>
                            </left>
                            <right>
-                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                              <Spinner fx:id="spinnerHobbies" onMouseClicked="#pressedSpinnerHobbies" prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="10.0" />
                                  </BorderPane.margin>
@@ -68,7 +68,7 @@
                               </CheckBox>
                            </left>
                            <right>
-                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                              <Spinner fx:id="spinnerGender" onMouseClicked="#pressedSpinnerGender" prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="10.0" />
                                  </BorderPane.margin>
@@ -84,7 +84,7 @@
                               </CheckBox>
                            </left>
                            <right>
-                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                              <Spinner fx:id="spinnerBirthDate" onMouseClicked="#pressedSpinnerBirthDate" prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="10.0" />
                                  </BorderPane.margin>
@@ -104,7 +104,7 @@
                               </CheckBox>
                            </left>
                            <right>
-                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                              <Spinner fx:id="spinnerAnimalAllergy" onMouseClicked="#pressedSpinnerAnimalAllergy" prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="10.0" />
                                  </BorderPane.margin>
@@ -120,7 +120,7 @@
                               </CheckBox>
                            </left>
                            <right>
-                              <Spinner prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                              <Spinner fx:id="spinnerFood" onMouseClicked="#pressedSpinnerFood" prefHeight="26.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="10.0" />
                                  </BorderPane.margin>

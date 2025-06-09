@@ -83,6 +83,12 @@ public class AppIhm extends Application {
      */
     public static Map<String, Boolean> enableCriteres = new HashMap<>();
 
+    /**
+     * Map des valeurs des critères.
+     * Permet de stocker la valeur des critères.
+     */
+    public static Map<String, Integer> valuesCriteres = new HashMap<>();
+
     // Initialisation des critères par défaut
     static {
         enableCriteres.put("hobbies", Boolean.TRUE);
@@ -90,6 +96,12 @@ public class AppIhm extends Application {
         enableCriteres.put("birthDate", Boolean.TRUE);
         enableCriteres.put("animalAllergy", Boolean.TRUE);
         enableCriteres.put("food", Boolean.TRUE);
+
+        valuesCriteres.put("hobbies",1);
+        valuesCriteres.put("gender",1);
+        valuesCriteres.put("birthDate",1);
+        valuesCriteres.put("animalAllergy",1);
+        valuesCriteres.put("food",1);
     }
 
     /**

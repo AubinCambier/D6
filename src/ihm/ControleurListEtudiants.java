@@ -163,16 +163,6 @@ public class ControleurListEtudiants {
     }
 
     /**
-     * Action déclenchée lors du clic sur le bouton Étudiants.
-     * Actuellement, cette méthode est vide.
-     *
-     * @param event L'événement de clic.
-     */
-    public void pressedEtudiants(ActionEvent event) {
-        // Fonction vide pour le moment.
-    }
-
-    /**
      * Action déclenchée lors du clic sur le bouton Liste des appariements.
      * Permet de naviguer vers la scène affichant les appariements des étudiants.
      *
