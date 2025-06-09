@@ -170,7 +170,7 @@ public void pressedFixerAjouter(ActionEvent event){
     // Ajout des composants graphiques
     h.getChildren().addAll(choiceBox1, choiceBox2, buttonPlus);
 
-    buttonPlus.setOnAction(e -> {
+    buttonPlus.setOnAction(_ -> {
         Student student1 = choiceBox1.getValue();
         Student student2 = choiceBox2.getValue();
 
@@ -207,7 +207,7 @@ public void pressedEviterAjouter(ActionEvent event){
     
     h.getChildren().addAll(choiceBox1, choiceBox2, buttonPlus);
 
-    buttonPlus.setOnAction(e -> {
+    buttonPlus.setOnAction(_ -> {
         Student student1 = choiceBox1.getValue();
         Student student2 = choiceBox2.getValue();
 

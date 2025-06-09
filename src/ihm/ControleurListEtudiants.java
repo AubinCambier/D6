@@ -107,7 +107,7 @@ public class ControleurListEtudiants {
         bp.setRight(image); // Place l'image à droite du BorderPane
 
         // Ajoute un événement au clic pour afficher les détails de l'étudiant
-        bp.setOnMouseClicked(e -> {
+        bp.setOnMouseClicked(_ -> {
             // Récupère l'indice de l'étudiant sélectionné dans la liste
             int i = etudiants.getSelectionModel().getSelectedIndices().get(0);
             AppIhm.selectedEtudiant = AppIhm.students.get(i); // Définit l'étudiant sélectionné
