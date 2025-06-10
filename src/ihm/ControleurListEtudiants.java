@@ -107,7 +107,7 @@ public class ControleurListEtudiants {
         bp.setRight(image); // Place l'image à droite du BorderPane
 
         // Ajoute un événement au clic pour afficher les détails de l'étudiant
-        bp.setOnMouseClicked(_ -> {
+        bp.setOnMouseClicked(e -> {
             // Récupère l'indice de l'étudiant sélectionné dans la liste
             int i = etudiants.getSelectionModel().getSelectedIndices().get(0);
             AppIhm.selectedEtudiant = AppIhm.students.get(i); // Définit l'étudiant sélectionné
@@ -157,8 +157,8 @@ public class ControleurListEtudiants {
      */
     public void pressedButtonRetour(ActionEvent event) {
         if (!AppIhm.lastScenes.isEmpty()) { // Vérifie si des scènes précédentes existent
-            AppIhm.stageA.setScene(AppIhm.lastScenes.getLast()); // Revient à la dernière scène enregistrée
-            AppIhm.lastScenes.removeLast(); // Supprime la dernière scène de l'historique
+            AppIhm.stageA.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
+            AppIhm.lastScenes.remove(AppIhm.lastScenes.size()-1); // Supprime la dernière scène de l'historique
         }
     }
 

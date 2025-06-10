@@ -79,9 +79,9 @@ public class ControleurListAppariements {
      * @param event L'événement déclenché lors du clic.
      */
     public void pressedButtonRetour(ActionEvent event) {
-        if (!AppIhm.lastScenes.isEmpty()) {
-            AppIhm.stageA.setScene(AppIhm.lastScenes.getLast());
-            AppIhm.lastScenes.removeLast();
+        if (!AppIhm.lastScenes.isEmpty()) { // Vérifie si des scènes précédentes existent
+            AppIhm.stageA.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
+            AppIhm.lastScenes.remove(AppIhm.lastScenes.size()-1); // Supprime la dernière scène de l'historique
         }
     }
 

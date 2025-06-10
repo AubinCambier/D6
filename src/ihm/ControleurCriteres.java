@@ -144,12 +144,12 @@ public void pressedButtonMenu(ActionEvent event){
  * 
  * @param event L'événement déclenché lors du clic sur le bouton.
  */
-public void pressedButtonRetour(ActionEvent event){
-    if (!AppIhm.lastScenes.isEmpty()) { // Vérifie qu'il y a des scènes enregistrées
-        AppIhm.stageA.setScene(AppIhm.lastScenes.getLast()); // Reprend la dernière scène
-        AppIhm.lastScenes.removeLast(); // Supprime la scène de l'historique
+public void pressedButtonRetour(ActionEvent event) {
+        if (!AppIhm.lastScenes.isEmpty()) { // Vérifie si des scènes précédentes existent
+            AppIhm.stageA.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
+            AppIhm.lastScenes.remove(AppIhm.lastScenes.size()-1); // Supprime la dernière scène de l'historique
+        }
     }
-}
 
 /**
  * Ajoute une affectation fixée entre deux étudiants.
@@ -170,7 +170,7 @@ public void pressedFixerAjouter(ActionEvent event){
     // Ajout des composants graphiques
     h.getChildren().addAll(choiceBox1, choiceBox2, buttonPlus);
 
-    buttonPlus.setOnAction(_ -> {
+    buttonPlus.setOnAction(e -> {
         Student student1 = choiceBox1.getValue();
         Student student2 = choiceBox2.getValue();
 
@@ -207,7 +207,7 @@ public void pressedEviterAjouter(ActionEvent event){
     
     h.getChildren().addAll(choiceBox1, choiceBox2, buttonPlus);
 
-    buttonPlus.setOnAction(_ -> {
+    buttonPlus.setOnAction(e -> {
         Student student1 = choiceBox1.getValue();
         Student student2 = choiceBox2.getValue();
 
@@ -232,10 +232,10 @@ public void pressedEviterAjouter(ActionEvent event){
  */
 public void pressedFixerSupprimer(ActionEvent event){
     if (!listViewFixer.getItems().isEmpty()) { // Vérifie si la liste n'est pas vide
-        listViewFixer.getItems().removeLast(); // Supprime le dernier élément graphique
+        listViewFixer.getItems().remove(listViewFixer.getItems().size()-1); // Supprime le dernier élément graphique
         if (!AppIhm.affectationsFixer.isEmpty()) { // Supprime l'affectation correspondante
-            AppIhm.affectations.remove(AppIhm.affectationsFixer.getLast());
-            AppIhm.affectationsFixer.removeLast();
+            AppIhm.affectations.remove(AppIhm.affectationsFixer.get(AppIhm.affectationsFixer.size()-1));
+            AppIhm.affectationsFixer.remove(AppIhm.affectationsFixer.size()-1);
         }
     }
 }
@@ -248,9 +248,9 @@ public void pressedFixerSupprimer(ActionEvent event){
  */
 public void pressedEviterSupprimer(ActionEvent event){
     if (!listViewEviter.getItems().isEmpty()) {
-        listViewEviter.getItems().removeLast();
+        listViewEviter.getItems().remove(listViewEviter.getItems().size()-1);
         if (!AppIhm.affectationsEviter.isEmpty()) {
-            AppIhm.affectationsEviter.removeLast();
+            AppIhm.affectationsEviter.remove(AppIhm.affectationsEviter.size()-1);
         }
     }
 }

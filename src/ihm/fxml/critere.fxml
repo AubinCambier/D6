@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurCriteres">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.ControleurCriteres">
    <top>
       <HBox prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -18,7 +18,8 @@
             <Button fx:id="buttonRetour" mnemonicParsing="false" onAction="#pressedButtonRetour" text="Button">
                <HBox.margin>
                   <Insets right="30.0" />
-               </HBox.margin></Button>
+               </HBox.margin>
+            </Button>
             <Button mnemonicParsing="false" onAction="#pressedEtudiants" text="Etudiants">
                <HBox.margin>
                   <Insets right="10.0" />
@@ -146,7 +147,8 @@
                               <Button mnemonicParsing="false" onAction="#pressedFixerAjouter" text="Ajouter">
                                  <HBox.margin>
                                     <Insets right="10.0" />
-                                 </HBox.margin></Button>
+                                 </HBox.margin>
+                              </Button>
                               <Button mnemonicParsing="false" onAction="#pressedFixerSupprimer" text="Supprimer" />
                            </children>
                         </HBox>
@@ -165,7 +167,8 @@
                               <Button mnemonicParsing="false" onAction="#pressedEviterAjouter" text="Ajouter">
                                  <HBox.margin>
                                     <Insets right="10.0" />
-                                 </HBox.margin></Button>
+                                 </HBox.margin>
+                              </Button>
                               <Button mnemonicParsing="false" onAction="#pressedEviterSupprimer" text="Supprimer" />
                            </children>
                            <VBox.margin>
