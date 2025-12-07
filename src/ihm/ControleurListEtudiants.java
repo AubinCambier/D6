@@ -132,7 +132,7 @@ public class ControleurListEtudiants {
 
             // Ajoute la scène actuelle à l'historique pour permettre le retour
             AppIhm.lastScenes.add(AppIhm.sceneListEtudiants);
-            AppIhm.stageA.setScene(AppIhm.sceneEtudiant); // Change la scène affichée
+            AppIhm.primaryStage.setScene(AppIhm.sceneEtudiant); // Change la scène affichée
         });
 
         etudiants.getItems().add(bp); // Ajoute l'étudiant à la liste affichée
@@ -146,7 +146,7 @@ public class ControleurListEtudiants {
      */
     public void pressedButtonMenu(ActionEvent event) {
         AppIhm.lastScenes.add(AppIhm.sceneListEtudiants); // Ajoute la scène actuelle à l'historique
-        AppIhm.stageA.setScene(AppIhm.sceneMenu); // Change la scène affichée vers le menu
+        AppIhm.primaryStage.setScene(AppIhm.sceneMenu); // Change la scène affichée vers le menu
     }
 
     /**
@@ -157,7 +157,7 @@ public class ControleurListEtudiants {
      */
     public void pressedButtonRetour(ActionEvent event) {
         if (!AppIhm.lastScenes.isEmpty()) { // Vérifie si des scènes précédentes existent
-            AppIhm.stageA.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
+            AppIhm.primaryStage.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
             AppIhm.lastScenes.remove(AppIhm.lastScenes.size()-1); // Supprime la dernière scène de l'historique
         }
     }
@@ -170,7 +170,7 @@ public class ControleurListEtudiants {
      */
     public void pressedListeAppariements(ActionEvent event) {
         AppIhm.lastScenes.add(AppIhm.sceneListEtudiants); // Ajoute la scène actuelle à l'historique
-        AppIhm.stageA.setScene(AppIhm.sceneListAppariements); // Affiche la scène des appariements
+        AppIhm.primaryStage.setScene(AppIhm.sceneListAppariements); // Affiche la scène des appariements
     }
 
     /**
@@ -181,6 +181,6 @@ public class ControleurListEtudiants {
      */
     public void pressedCriteres(ActionEvent event) {
         AppIhm.lastScenes.add(AppIhm.sceneListEtudiants); // Ajoute la scène actuelle à l'historique
-        AppIhm.stageA.setScene(AppIhm.sceneCriteres); // Affiche la scène des critères
+        AppIhm.primaryStage.setScene(AppIhm.sceneCriteres); // Affiche la scène des critères
     }
 }

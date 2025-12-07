@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,13 +23,13 @@ public class Student {
      * Map contenant les informations de l'étudiant.
      * Les clés correspondent aux critères définis dans la map statique 'critere'.
      */
-    private Map<String, String> information;
+    private final Map<String, String> information;
 
     /**
      * Map statique définissant les critères d'un étudiant et leur type.
      * T = Texte, D = Date (format "AAAA-MM-JJ"), B = Booléen ("true"/"false")
      */
-    public static Map<String, String> critere = new HashMap<String, String>();
+    public static Map<String, String> critere = new HashMap<>();
 
     // Initialisation des critères et de leurs types
     static {
@@ -75,37 +76,37 @@ public class Student {
             String hobbies) {
         this();
         try{
-            if(!(prenom instanceof String)){
+            if(prenom == null || prenom.trim().isEmpty()){
                 throw new WrongInformationException("prenom invalide");
             }
             else {information.put("prenom", prenom);}
         }catch(WrongInformationException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         information.put("nom", nom);
         try{
-            @SuppressWarnings("unused")
-            LocalDate ld=LocalDate.parse(dateNaissance);
+            LocalDate.parse(dateNaissance);
             information.put("dateNaissance", dateNaissance);
 
         }catch(DateTimeParseException e){
-            System.out.println("WrongInformationException : date invalide");
+            System.err.println("WrongInformationException : date invalide");
+            e.printStackTrace();
         }
         try{
-            if(!(pays instanceof String)){
+            if(pays == null || pays.trim().isEmpty()){
                 throw new WrongInformationException("pays invalide");
             }
             information.put("pays", pays);
         }catch(WrongInformationException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         try{
-            if(!(gender instanceof String)){
+            if((!"true".equals(gender)) && (!"false".equals(gender))){
                 throw new WrongInformationException("genre invalide");
             }
             information.put("gender", gender);
         }catch(WrongInformationException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         try{
             if((!"true".equals(pairGender)) && (!"false".equals(pairGender))){
@@ -113,7 +114,7 @@ public class Student {
             }
             information.put("pairGender", pairGender);
         }catch(WrongInformationException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         try{
             if((!"true".equals(guestAnimalAllergy)) && (!"false".equals(guestAnimalAllergy))){
@@ -121,7 +122,7 @@ public class Student {
             }
             information.put("guestAnimalAllergy", guestAnimalAllergy);
         }catch(WrongInformationException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         try{
             if((!"true".equals(hostHasAnimal)) && (!"false".equals(hostHasAnimal))){
@@ -129,40 +130,13 @@ public class Student {
             }
             information.put("hostHasAnimal", hostHasAnimal);
         }catch(WrongInformationException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
-        try{
-            if(!(gender instanceof String)){
-                throw new WrongInformationException("guestFood invalide");
-            }
-            information.put("guestFood", guestFood);
-        }catch(WrongInformationException e){
-            System.out.println(e);
-        }
-        try{
-            if(!(hostFood instanceof String)){
-                throw new WrongInformationException("hostFood invalide");
-            }
-            information.put("hostFood", hostFood);
-        }catch(WrongInformationException e){
-            System.out.println(e);
-        }
-        try{
-            if(!(history instanceof String)){
-                throw new WrongInformationException("history invalide");
-            }
-            information.put("history", history);
-        }catch(WrongInformationException e){
-            System.out.println(e);
-        }
-        try{
-            if(!(hobbies instanceof String)){
-                throw new WrongInformationException("hobbies invalide");
-            }
-            information.put("hobbies", hobbies);
-        }catch(WrongInformationException e){
-            System.out.println(e);
-        }
+        
+        information.put("guestFood", guestFood);
+        information.put("hostFood", hostFood);
+        information.put("history", history);
+        information.put("hobbies", hobbies);
     }
 
     /**
@@ -324,7 +298,7 @@ public class Student {
      * @return true si allergique, false sinon
      */
     public boolean getGuestAnimalAllergy() {
-        return information.get("guestAnimalAllergy").equals("true");
+        return "true".equals(information.get("guestAnimalAllergy"));
     }
 
     /**
@@ -332,7 +306,7 @@ public class Student {
      * @return true si l'hôte a des animaux, false sinon
      */
     public boolean getHostHasAnimal() {
-        return information.get("hostHasAnimal").equals("true");
+        return "true".equals(information.get("hostHasAnimal"));
     }
 
     /**
@@ -340,13 +314,8 @@ public class Student {
      * @return ArrayList des préférences alimentaires
      */
     public ArrayList<String> getGuestFood(){
-        ArrayList<String> gestFood = new ArrayList<String>();
         String[] food = information.get("guestFood").split(",");
-
-        for (String valeur : food){
-            gestFood.add(valeur);
-        }
-        return gestFood;
+        return new ArrayList<>(Arrays.asList(food));
     }
 
     /**
@@ -354,13 +323,8 @@ public class Student {
      * @return ArrayList des préférences alimentaires
      */
     public ArrayList<String> getHostFood(){
-        ArrayList<String> hostFood = new ArrayList<String>();
         String[] food = information.get("hostFood").split(",");
-
-        for (String valeur : food){
-            hostFood.add(valeur);
-        }
-        return hostFood;
+        return new ArrayList<>(Arrays.asList(food));
     }
 
     /**
@@ -376,13 +340,8 @@ public class Student {
      * @return ArrayList des centres d'intérêt
      */
     public ArrayList<String> getHobbies() {
-        ArrayList<String> hobbies = new ArrayList<>();
         String[] hobbie = information.get("hobbies").split(",");
-
-        for (String valeur : hobbie){
-            hobbies.add(valeur);
-        }
-        return hobbies;
+        return new ArrayList<>(Arrays.asList(hobbie));
     }
 
     /**
@@ -390,7 +349,7 @@ public class Student {
      * @return true si l'étudiant est un hôte, false sinon
      */
     public boolean isHote(){
-        return this.getPays().equals("Italie");
+        return "Italie".equals(this.getPays());
     }
 
     /**
@@ -406,18 +365,18 @@ public class Student {
     public double calculAffinite(Student student) {
         double affinite = 0;
 
-        if (this.getPairGender() == student.getGender()) {
+        if (this.getPairGender().equals(student.getGender())) {
             affinite = affinite + 1.5;
         }
-        if (this.getGender() == student.getPairGender()) {
+        if (this.getGender().equals(student.getPairGender())) {
             affinite = affinite + 1.5;
         }
 
         int nbCommonHobbies = 0;
-        for (int i = 0; i < this.getHobbies().size(); i = i + 1) {
-            for (int j = 0; j < student.getHobbies().size(); j = j + 1) {
-                if (this.getHobbies().get(i).equals(student.getHobbies().get(j))) {
-                    nbCommonHobbies = nbCommonHobbies + 1;
+        for (String thisHobby : this.getHobbies()) {
+            for (String studentHobby : student.getHobbies()) {
+                if (thisHobby.equals(studentHobby)) {
+                    nbCommonHobbies++;
                 }
             }
         }
@@ -445,6 +404,6 @@ public class Student {
      */
     @Override
     public String toString(){
-        return ""+getNom()+" "+getPrenom();
+        return getNom()+" "+getPrenom();
     }
 }

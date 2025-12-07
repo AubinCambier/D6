@@ -1,0 +1,94 @@
+/* General Styles */
+.root {
+    -fx-background-color: #f4f4f9;
+    -fx-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Button Styles */
+.button {
+    -fx-background-color: #4CAF50; /* Green */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}
+
+.button-danger {
+    -fx-background-color: #f44336; /* Red */
+}
+
+.button-danger:hover {
+    -fx-background-color: #e53935;
+}
+
+.button-icon {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+    -fx-effect: none;
+}
+
+/* ListView Styles */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.list-cell {
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #eeeeee;
+}
+
+.list-cell:filled:selected, .list-cell:filled:selected:hover {
+    -fx-background-color: #a0d2eb;
+    -fx-text-fill: white;
+}
+
+.list-cell:even {
+    -fx-background-color: #f9f9f9;
+}
+
+.list-cell:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Label Styles */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* CheckBox Styles */
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 3;
+}
+
+.check-box:selected .box .mark {
+    -fx-background-color: #4CAF50;
+}
+
+/* Spinner Styles */
+.spinner .increment-arrow-button, .spinner .decrement-arrow-button {
+    -fx-background-color: #4CAF50;
+    -fx-background-radius: 3;
+}
+
+.spinner .increment-arrow-button:hover, .spinner .decrement-arrow-button:hover {
+    -fx-background-color: #45a049;
+}
+
+.spinner .text-field {
+    -fx-font-size: 14px;
+}

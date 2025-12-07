@@ -69,7 +69,7 @@ public class ControleurListAppariements {
      */
     public void pressedButtonMenu(ActionEvent event) {
         AppIhm.lastScenes.add(AppIhm.sceneListAppariements);
-        AppIhm.stageA.setScene(AppIhm.sceneMenu);
+        AppIhm.primaryStage.setScene(AppIhm.sceneMenu);
     }
 
     /**
@@ -80,7 +80,7 @@ public class ControleurListAppariements {
      */
     public void pressedButtonRetour(ActionEvent event) {
         if (!AppIhm.lastScenes.isEmpty()) { // Vérifie si des scènes précédentes existent
-            AppIhm.stageA.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
+            AppIhm.primaryStage.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
             AppIhm.lastScenes.remove(AppIhm.lastScenes.size()-1); // Supprime la dernière scène de l'historique
         }
     }
@@ -101,7 +101,7 @@ public class ControleurListAppariements {
         try {
             Parent root = loader.load();
             AppIhm.sceneListAppariements = new Scene(root);
-            AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
+            AppIhm.primaryStage.setScene(AppIhm.sceneListAppariements);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -132,7 +132,7 @@ public class ControleurListAppariements {
      */
     public void pressedEtudiants(ActionEvent event) {
         AppIhm.lastScenes.add(AppIhm.sceneListAppariements);
-        AppIhm.stageA.setScene(AppIhm.sceneListEtudiants);
+        AppIhm.primaryStage.setScene(AppIhm.sceneListEtudiants);
     }
 
     /**
@@ -142,7 +142,6 @@ public class ControleurListAppariements {
      */
     public void pressedCriteres(ActionEvent event) {
         AppIhm.lastScenes.add(AppIhm.sceneListAppariements);
-        AppIhm.stageA.setScene(AppIhm.sceneCriteres);
+        AppIhm.primaryStage.setScene(AppIhm.sceneCriteres);
     }
 }
-

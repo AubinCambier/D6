@@ -29,7 +29,7 @@ public class AppIhm extends Application {
     /**
      * Stage principal de l'application.
      */
-    public static Stage stageA = new Stage();
+    public static Stage primaryStage;
 
     /**
      * Scènes utilisées dans l'application.
@@ -110,23 +110,8 @@ public class AppIhm extends Application {
      * @throws IOException En cas d'erreur de chargement des fichiers FXML.
      */
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        
-        // Chargement du menu principal
-        URL fxmlFileUrl = getClass().getResource("fxml/menu.fxml");
-        if (fxmlFileUrl == null) {
-            System.out.println("Impossible de charger le fichier fxml");
-            System.exit(-1);
-        }
-        loader.setLocation(fxmlFileUrl);
-        Parent root = loader.load();
-        sceneMenu = new Scene(root);
-
-        // Configuration du stage principal
-        stageA.setScene(sceneMenu);
-        stageA.setTitle("Sae");
-        stageA.setResizable(false);
-        stageA.show();
+        // Assigner le stage principal fourni par JavaFX
+        primaryStage = stage;
 
         // Chargement des données depuis un fichier CSV
         ListAffectation list = new ListAffectation();
@@ -141,6 +126,23 @@ public class AppIhm extends Application {
         sceneCriteres = initializeScene("fxml/critere.fxml");
         sceneListAppariements = initializeScene("fxml/listAppariements.fxml");
         sceneListEtudiants = initializeScene("fxml/listEtudiants.fxml");
+
+        // Chargement du menu principal
+        FXMLLoader loader = new FXMLLoader();
+        URL fxmlFileUrl = getClass().getResource("fxml/menu.fxml");
+        if (fxmlFileUrl == null) {
+            System.out.println("Impossible de charger le fichier fxml: menu.fxml");
+            System.exit(-1);
+        }
+        loader.setLocation(fxmlFileUrl);
+        Parent root = loader.load();
+        sceneMenu = new Scene(root);
+
+        // Configuration et affichage du stage principal
+        primaryStage.setScene(sceneMenu);
+        primaryStage.setTitle("Sae");
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
 
     /**
@@ -152,14 +154,18 @@ public class AppIhm extends Application {
         FXMLLoader loader = new FXMLLoader();
         URL fxmlFileUrl = getClass().getResource(fxmlPath);
         if (fxmlFileUrl == null) {
-            System.out.println("Impossible de charger le fichier fxml : " + fxmlPath);
+            System.err.println("Impossible de charger le fichier fxml : " + fxmlPath);
+            // Il est préférable de lancer une exception ou de quitter proprement
+            // plutôt que de retourner null et de risquer un NullPointerException plus tard.
             System.exit(-1);
+            return null; // Inatteignable, mais garde le compilateur content.
         }
         loader.setLocation(fxmlFileUrl);
         try {
             return new Scene(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(-1); // Quitter si une scène essentielle ne peut être chargée.
             return null;
         }
     }

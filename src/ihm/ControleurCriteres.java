@@ -135,7 +135,7 @@ public class ControleurCriteres {
  */
 public void pressedButtonMenu(ActionEvent event){
     AppIhm.lastScenes.add(AppIhm.sceneCriteres); // Sauvegarde la scène actuelle
-    AppIhm.stageA.setScene(AppIhm.sceneMenu); // Affiche la scène du menu principal
+    AppIhm.primaryStage.setScene(AppIhm.sceneMenu); // Affiche la scène du menu principal
 }
 
 /**
@@ -146,7 +146,7 @@ public void pressedButtonMenu(ActionEvent event){
  */
 public void pressedButtonRetour(ActionEvent event) {
         if (!AppIhm.lastScenes.isEmpty()) { // Vérifie si des scènes précédentes existent
-            AppIhm.stageA.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
+            AppIhm.primaryStage.setScene(AppIhm.lastScenes.get(AppIhm.lastScenes.size()-1)); // Revient à la dernière scène enregistrée
             AppIhm.lastScenes.remove(AppIhm.lastScenes.size()-1); // Supprime la dernière scène de l'historique
         }
     }
@@ -263,7 +263,7 @@ public void pressedEviterSupprimer(ActionEvent event){
      */
     public void pressedEtudiants(ActionEvent event){
         AppIhm.lastScenes.add(AppIhm.sceneCriteres);
-        AppIhm.stageA.setScene(AppIhm.sceneListEtudiants);
+        AppIhm.primaryStage.setScene(AppIhm.sceneListEtudiants);
     }
 
     /**
@@ -274,7 +274,7 @@ public void pressedEviterSupprimer(ActionEvent event){
      */
     public void pressedListeAppariements(ActionEvent event){
         AppIhm.lastScenes.add(AppIhm.sceneCriteres);
-        AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
+        AppIhm.primaryStage.setScene(AppIhm.sceneListAppariements);
     }
 
     // Gestion de l'état des critères sélectionnés

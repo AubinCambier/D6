@@ -7,16 +7,16 @@ public class ControleurMenu {
     
     public void buttonEtudiants(ActionEvent event){
         AppIhm.lastScenes.add(AppIhm.sceneMenu);
-        AppIhm.stageA.setScene(AppIhm.sceneListEtudiants);
+        AppIhm.primaryStage.setScene(AppIhm.sceneListEtudiants);
     }
 
     public void buttonListAppariements(ActionEvent event){
         AppIhm.lastScenes.add(AppIhm.sceneMenu);
-        AppIhm.stageA.setScene(AppIhm.sceneListAppariements);
+        AppIhm.primaryStage.setScene(AppIhm.sceneListAppariements);
     }
 
     public void buttonCriteres(ActionEvent event){
         AppIhm.lastScenes.add(AppIhm.sceneMenu);
-        AppIhm.stageA.setScene(AppIhm.sceneCriteres);
+        AppIhm.primaryStage.setScene(AppIhm.sceneCriteres);
     }
 }
